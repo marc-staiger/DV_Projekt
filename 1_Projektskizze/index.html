@@ -14,7 +14,7 @@
 		<ul>
 			<li>Marc Staiger    (marc.staiger@hs-furtwangen.de)</li>
 			<li>Ramona Müller   (ramona.mueller@hs-furtwangen.de)</li>
-			<li>Jannik Eiberl   (jannik.maximilian.eiberle@hs-furtwangen.de)</li>
+			<li>Jannik Eiberle   (jannik.maximilian.eiberle@hs-furtwangen.de)</li>
 		    <li>Enda Karahan    (enda.guel.karahan@hs-furtwangen.de)</li>
 			<li>Timo Kromer     (timo.kromer@hs-furtwangen.de)</li>
 			<li>Johannes Ritter (johannes.ritter@hs-furtwangen.de)</li>
@@ -32,27 +32,26 @@
 
 
 		<h2>2. Features und Anforderungen</h2>
-		<p>TODO: Stellen Sie die aus Ihrer Sicht wichtigsten funktionalen Anforderungen (maximal 10) zusammen:</p>
+		<p>Funktionalen Anforderungen:</p>
 		<ul>
 			<li>Das Regelwerk sollte einsehbar sein</li>
 			<li>Das Programm muss in der Lage sein, eine Zufallskombination zu erstellen, welche dann erraten werden kann</li>
 			<li>Der Spieler muss in der Lage sein eine Farbkombination festzulegen</li>
 			<li>Das Programm muss in der Lage sein, eine vom Spieler vorgegebene Kombination auszuwerten und zu sagen, ob sich eine Farbe an er richtigen Position befindet oder ob die Farbe dabei ist, jedoch nicht an der richtigen Position</li>
 			<li>Das Programm muss in der Lage sein, vorherige Farbkombinationen anzuzeigen, sodass der Spieler in der Lage ist seine vorherigen Versuche zu sehen</li>
-			<li>Wenn man die vorgegebene Farbkombination errät, muss das Spiel zu Ende sein<li>
-			<li>Wenn man nach Anzahl aller versuchen nicht die vorgegeben Farbkombination errät, muss das Spiel zu Ende sein -> Game Over<li>
-			<li>Am Ende des Spiel, egal ob gewonnen oder verloren wird die vorgegeben Farbkombination vom PC enthüllt<li>
-			<li>Am Ende einer Runde, muss das Spiel neu gestartet werden können<li>
+			<li>Wenn man die vorgegebene Farbkombination errät, muss das Spiel zu Ende sein</li>
+			<li>Wenn man nach Anzahl aller versuchen nicht die vorgegeben Farbkombination errät, muss das Spiel zu Ende sein -> Game Over</li>
+			<li>Am Ende des Spiel, egal ob gewonnen oder verloren wird die vorgegeben Farbkombination vom PC enthüllt</li>
+			<li>Am Ende einer Runde, muss das Spiel neu gestartet werden können</li>
+			<li>Es werden Punkte für das Spiel vergeben, die man am Ende auf einer Rangliste einsehen kann. Dabei gibt es mehr Punkte je weniger Züge benötigt wurden</li>
 		</ul>
-		<p>TODO: Darüber hinaus sollen nicht-funktionale Anforderungen spezifiziert werden:</p>
+		<p>Nicht-funktionale Anforderungen :</p>
 		<ul>
-			<li>Wie soll die Bedieneroberfläche aussehen?</li>
-			<li>In welcher Systemumgebung soll Ihr Programm lauffähig sein?</li>
-			<li>Mit welchen Entwicklungswerkzeugen wird gearbeitet?</li>
-		</ul>
+			<li>Das gesamte Spielbrett ist in einem Fenster sichtbar und orientiert sich am original Mastermind Spiel</li>
+			<img src="https://i.pinimg.com/originals/d0/07/55/d0075542975c8ca9aaae9f7ff9b349da.jpg"width="300"height="250">
+			<li>Dabei blickt man von oben auf das Spielfeld und die Pinns werden durch Kreise in der entsprechenden Farbe repräsentiert</li>
 		<h2>3. Architektur</h2>
-		<p>TODO: Beschreibung der Software-Architektur inkl. Klassendiagramm z. B.:</p>
-		<p>Das Klassendiagramm kann mit Hilfe von Pseudo Code (siehe HTML Quelltext) erstellt werden <a href="https://mermaid-js.github.io/mermaid/#/classDiagram">(Hilfe)</a>.
+		<p>Vorläufiger Entwurf des Klassendiagramms:</p>
 
 		<div class="diagram">
 			classDiagram
@@ -94,10 +93,22 @@
 			Fenster -- Spielfeld
 			Fenster -- Regeln
 		</div>
-		<h2>4. Aufwandsschätzung und Aufteilung</h2>
-		<p>TODO: Schätzen Sie den Aufwand der verschiedenen Teile Ihres Programms ab und legen Sie fest, wie die Aufteilung auf die Gruppenmitglieder aussehen soll.</p>
-		<h2>Optional: Verweis auf andere HTML Dateien</h2>
-		<p><a href="otherfile.html">Eine weitere HTML-Datei</a></p>
+		<h2>4. Aufteilung</h2>
+		<p>Spiellogik:</p>
+		<ul>
+			<li>Enda Karahan</li>
+			<li>Ramona Müller</li>
+		</ul>
+		<p>GUI:</p>
+		<ul>
+			<li>Johannes Ritter</li>
+			<li>Jannik Eiberle</li>
+		</ul>
+		<p>Rangliste:</p>
+		<ul>
+			<li>Timo Kromer</li>
+			<li>Marc Staiger</li>
+		</ul>
 	</main>
 	<footer></footer>
 </body>
