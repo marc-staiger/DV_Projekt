@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Highscore {
    protected static ArrayList<Punktzahl> Scores ;
-  Punktzahl smaller;
-  Punktzahl bigger;
-  boolean  run;
+   Punktzahl smaller;
+   Punktzahl bigger;
+   boolean  run;
 public    Highscore()
 {
 	Scores = new ArrayList<Punktzahl>();
