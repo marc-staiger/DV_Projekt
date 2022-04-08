@@ -1,11 +1,12 @@
 import java.util.*;
-import java.text.*;
+
 
 public class Highscore {
-private ArrayList<Punktzahl> Scores ;
- Punktzahl sample;
-
-public  Highscore()
+   protected static ArrayList<Punktzahl> Scores ;
+  Punktzahl smaller;
+  Punktzahl bigger;
+boolean  run;
+public    Highscore()
 {
 	Scores = new ArrayList<Punktzahl>();
 	
@@ -17,15 +18,35 @@ public void setNewHighScore(Punktzahl Score)
 {
   Scores.add(Score);
 }
+public Punktzahl getHighscore(int i)
 
-public ArrayList<Punktzahl> SortiereHighscore(ArrayList<Punktzahl> zuSortierendeListe)
 {
-	ArrayList<Punktzahl> Sortierteliste ;
-	Sortierteliste = new ArrayList<Punktzahl>();
+  return Scores.get(i);
+}
+
+public ArrayList<Punktzahl> getHighscoreAll()
+
+{
+  return Scores;
+}
+public void SortiereHighscore(ArrayList<Punktzahl> zuSortierendeListe)
+{
 	
 	
-	
-	return Sortierteliste;
+	for (int i = 0; i < zuSortierendeListe.size() && run == true; i++) {
+	    run = false;
+
+	   for (int y = 0; y <  zuSortierendeListe.size(); y++) {
+	        if(zuSortierendeListe.get(y).getPunktzahl() > zuSortierendeListe.get(y).getPunktzahl())  {
+	            bigger = zuSortierendeListe.get(y) ;
+	            smaller = zuSortierendeListe.get(y+1) ;
+	            zuSortierendeListe.add(y, smaller);
+	            zuSortierendeListe.add(y+1, smaller);
+	            run = true;
+	          }
+	    }
+	}
+//	
 }
 }
 
