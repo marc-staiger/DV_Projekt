@@ -5,7 +5,7 @@ public class Highscore {
    protected static ArrayList<Punktzahl> Scores ;
   Punktzahl smaller;
   Punktzahl bigger;
-boolean  run;
+  boolean  run;
 public    Highscore()
 {
 	Scores = new ArrayList<Punktzahl>();
