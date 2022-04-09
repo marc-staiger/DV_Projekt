@@ -18,7 +18,7 @@ import javax.swing.Action;
 
 public class GUIHighscore {
     private Highscore hiscore =new Highscore();
-	private JFrame frame;
+	JFrame frame;
 	private JTextField txtTheMastermindedPlayers;
 	private JTextField textField;
 	private JTextField textField_1;
