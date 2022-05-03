@@ -1,7 +1,7 @@
 
 public class Punktzahl {
-	private double Punktzahl;
-	private String Name;
+	double Punktzahl;
+    String Name;
 	
 	public Punktzahl (double Punktzahl, String Name)
 	
