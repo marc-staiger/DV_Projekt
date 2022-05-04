@@ -74,6 +74,11 @@ public class Spielbrett extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnHelp = new JButton("Help");
+		btnHelp.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnHelp.setBackground(Color.PINK);
 		btnHelp.setForeground(Color.MAGENTA);
 		btnHelp.setFont(new Font("MV Boli", Font.PLAIN, 40));
@@ -81,6 +86,11 @@ public class Spielbrett extends JFrame {
 		contentPane.add(btnHelp);
 		
 		JButton btnHighscore = new JButton("Highscore");
+		btnHighscore.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnHighscore.setBackground(Color.PINK);
 		btnHighscore.setForeground(Color.MAGENTA);
 		btnHighscore.setFont(new Font("MV Boli", Font.PLAIN, 40));

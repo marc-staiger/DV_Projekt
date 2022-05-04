@@ -45,6 +45,7 @@ public class Highscore_GUI extends JFrame {
 	 */
 	public Highscore_GUI() {
 		Highscore HIGH = new Highscore();
+		HIGH.SortiereHighscore();
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		setBounds(100, 100, 582, 470);
 		setResizable(false);
