@@ -2,7 +2,7 @@ package Test;
 
 import java.util.Random;
 import java.util.Scanner; ///////////////////////////////////////////////
-
+import javax.swing.*;
 
 public class Spielfeld {
 	
@@ -93,11 +93,13 @@ public class Spielfeld {
 	}
 	
 	private void fuelleReihe() { ///////////////////////////////////////////
-		Scanner eingabewert = new Scanner(System.in);
+		//Scanner eingabewert = new Scanner(System.in);
+		String eingabe = JOptionPane.showInputDialog("Zahl eingeben");
+		
 		
 		if(!spielende) {
 		for (int i = 0; i<anzahlPinns; i++)
-			pinn[i][aktiveReihe] = eingabewert.nextInt();
+			pinn[i][aktiveReihe] = Character.getNumericValue(eingabe.charAt(i));//eingabewert.nextInt();
 
 		}
 	} ///////////////////////////////////////////
