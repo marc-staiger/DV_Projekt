@@ -1,46 +1,71 @@
+
 package Test;
 
+
+
+// Bibliotheken einbinden
 import java.util.Random;
 import java.util.Scanner; ///////////////////////////////////////////////
 import javax.swing.*;
 
+
+
 public class Spielfeld {
+
+	// Attribute
 	
+	// Spielfeldarrays
 	private int[][] pinn;
 	private int[][] kontrolle;
 	private int[] ziel;
 	
+	// Variablen zur Spielanpassung
 	private int anzahlPinns;
 	private int anzahlReihen;
 	private int anzahlFarben;
 	
+	// Hilfsvariablen
 	private int aktiveReihe;
 	private boolean spielende;
 	
+	
+	
+	// Konstruktor
 	public Spielfeld() {
+		
+		// Spielanpassung
 		anzahlPinns = 4;
 		anzahlReihen = 8;
 		anzahlFarben = 6;
 		
+		// Hilfsvariablen vorbelegen
 		aktiveReihe = 0;
 		spielende = false;
 		
+		// Spielfeldarrays mit gewünschter Spielanpassung erstellen
 		pinn = new int[anzahlPinns][anzahlReihen];
 		kontrolle = new int[anzahlPinns][anzahlReihen];
 		ziel = new int[anzahlPinns];
 		
+		// Zufallsgenerator starten
 		Random random = new Random();
 		
+		// Spielfeldarrays mit Werten vorbelegen
 		for (int i = 0; i<anzahlPinns; i++) {
-			ziel[i] = random.nextInt(6 + 1) + 1;
+			ziel[i] = random.nextInt(6 + 1) + 1;	// Zielfeld mit Zufallsfarbe füllen
 			for (int j = 0; j<anzahlReihen; j++) {
-				pinn[i][j] = 0;
-				kontrolle[i][j] = 0;	
+				pinn[i][j] = 0;		// Pinnfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
+				kontrolle[i][j] = 0;	// Kontrollfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
 			}
 		}
 	}
 	
-	public void pinnFarbe(int pinnPos, int reihe) { // pinnPos 0 bis Anzahl-1 und reihe 0 bis Anzahl-1
+	
+	
+	// Funktionen
+	
+	// Farbe schaltet bei Aufruf eins weiter, ohne wieder auf 0 (keine Farbe) zu gehen
+	public void pinnFarbe(int pinnPos, int reihe) { // pinnPos: 0 bis Anzahl-1 und reihe: 0 bis Anzahl-1
 		if(!spielende && reihe == aktiveReihe)
 			if (pinnPos >= 0 && pinnPos < anzahlPinns)
 				if (pinn[pinnPos][aktiveReihe] == anzahlFarben)
@@ -49,6 +74,7 @@ public class Spielfeld {
 					pinn[pinnPos][aktiveReihe]++;
 	}
 	
+	// Kontrolle nach füllen einer Reihe, wenn aufgerufen, wird Kontrollfeld mit weißen (1) und schwarzen (2) Pinns gefüllt
 	public void kontrolle() {
 		if (!spielende) {
 			boolean istVoll = true;
@@ -83,7 +109,8 @@ public class Spielfeld {
 			}
 		}
 	}
-	
+
+	// Bei Aufruf wird die nächste Reihe "aktiviert" (Es ist immer nur eine Aktiv)
 	private void naechsteReihe() {
 		aktiveReihe++;
 		if (aktiveReihe == anzahlReihen) {
@@ -92,6 +119,11 @@ public class Spielfeld {
 		}
 	}
 	
+	
+	
+	
+	
+	// Hilfsfunktionen um Programm zu testen, werden später nicht benötigt
 	private void fuelleReihe() { ///////////////////////////////////////////
 		//Scanner eingabewert = new Scanner(System.in);
 		String eingabe = JOptionPane.showInputDialog("Zahl eingeben");
