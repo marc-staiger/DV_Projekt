@@ -62,7 +62,11 @@ public class Spielfeld {
 	
 	
 	
+	
+	
 	// Funktionen
+	
+	
 	
 	// Farbe schaltet bei Aufruf eins weiter, ohne wieder auf 0 (keine Farbe) zu gehen
 	public void pinnFarbe(int pinnPos, int reihe) { // pinnPos: 0 bis Anzahl-1 und reihe: 0 bis Anzahl-1
@@ -74,22 +78,56 @@ public class Spielfeld {
 					pinn[pinnPos][aktiveReihe]++;
 	}
 	
+	
+	
 	// Kontrolle nach füllen einer Reihe, wenn aufgerufen, wird Kontrollfeld mit weißen (1) und schwarzen (2) Pinns gefüllt
 	public void kontrolle() {
 		if (!spielende) {
+			
+			// Test: Ist aktive Reihe komplett befüllt?
 			boolean istVoll = true;
 			for (int i = 0; i < anzahlPinns; i++)
 				if(pinn[i][aktiveReihe] == 0)
 					istVoll = false;
+			
 			if (istVoll) {
 				int weiss = 0;
 				int schwarz = 0;
-				boolean[] schonGeprueft = new boolean[anzahlPinns];
-				for (int i = 0; i<anzahlPinns; i++)
-					schonGeprueft[i] = false;
+				
+				// Hilfsarrays mit Info über Pinns die einen "Partner" gefunden haben
+				boolean[] schonGeprueftPinn = new boolean[anzahlPinns];
+				boolean[] schonGeprueftZiel = new boolean[anzahlPinns];
+				for (int i = 0; i<anzahlPinns; i++) {
+					schonGeprueftPinn[i] = false;
+					schonGeprueftZiel[i] = false;
+				}
+				
+				// Pro Pinn mit richtiger Farbe an richtiger Stelle kommt ein schwarzer Pinn dazu 
 				for (int i = 0; i<anzahlPinns; i++) {
 					if (ziel[i] == pinn[i][aktiveReihe])
 						schwarz++;
+					
+					for (int j = 0; j<anzahlPinns; j++) {
+						if (ziel[i] == pinn[j][aktiveReihe] && (!schonGeprueftPinn[j] && !schonGeprueftZiel[i])) {
+							weiss++;
+							schonGeprueftPinn[j] = true;
+							schonGeprueftZiel[i] = true;
+						}
+					}
+				}
+				
+				
+				/*
+				// Schwarze Pinns funktionieren, weiße nicht
+				
+				boolean[] schonGeprueft = new boolean[anzahlPinns];
+				for (int i = 0; i<anzahlPinns; i++)
+					schonGeprueft[i] = false;
+					
+				for (int i = 0; i<anzahlPinns; i++) {
+					if (ziel[i] == pinn[i][aktiveReihe])
+						schwarz++;
+					
 					for (int j = 0; j<anzahlPinns; j++) {
 						if (ziel[i] == pinn[j][aktiveReihe] && !schonGeprueft[j]) {
 							weiss++;
@@ -97,6 +135,9 @@ public class Spielfeld {
 						}
 					}
 				}
+				*/
+				
+				
 				for (int i = 0; i<weiss; i++)
 					kontrolle[i][aktiveReihe] = 1;
 				for (int i = 0; i<schwarz; i++)
@@ -110,6 +151,8 @@ public class Spielfeld {
 		}
 	}
 
+	
+	
 	// Bei Aufruf wird die nächste Reihe "aktiviert" (Es ist immer nur eine Aktiv)
 	private void naechsteReihe() {
 		aktiveReihe++;
