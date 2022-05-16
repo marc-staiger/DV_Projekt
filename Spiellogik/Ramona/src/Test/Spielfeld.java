@@ -28,8 +28,6 @@ public class Spielfeld {
 	private int aktiveReihe;
 	private boolean spielende;
 	
-	
-	
 	// Konstruktor
 	public Spielfeld() {
 		
@@ -52,7 +50,7 @@ public class Spielfeld {
 		
 		// Spielfeldarrays mit Werten vorbelegen
 		for (int i = 0; i<anzahlPinns; i++) {
-			ziel[i] = random.nextInt(6 + 1) + 1;	// Zielfeld mit Zufallsfarbe füllen
+			ziel[i] = random.nextInt(anzahlFarben) + 1;	// Zielfeld mit Zufallsfarbe füllen
 			for (int j = 0; j<anzahlReihen; j++) {
 				pinn[i][j] = 0;		// Pinnfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
 				kontrolle[i][j] = 0;	// Kontrollfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
