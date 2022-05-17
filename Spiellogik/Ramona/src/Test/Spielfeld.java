@@ -28,12 +28,60 @@ public class Spielfeld {
 	private int aktiveReihe;
 	private boolean spielende;
 	
+	
+	
+	
+	
 	// Konstruktor
 	public Spielfeld() {
+		this(1);
 		
+		/*
 		// Spielanpassung
 		anzahlPinns = 4;
 		anzahlReihen = 8;
+		anzahlFarben = 6;
+		
+		// Hilfsvariablen vorbelegen
+		aktiveReihe = 0;
+		spielende = false;
+		
+		// Spielfeldarrays mit gewünschter Spielanpassung erstellen
+		pinn = new int[anzahlPinns][anzahlReihen];
+		kontrolle = new int[anzahlPinns][anzahlReihen];
+		ziel = new int[anzahlPinns];
+		
+		// Zufallsgenerator starten
+		Random random = new Random();
+		
+		// Spielfeldarrays mit Werten vorbelegen
+		for (int i = 0; i<anzahlPinns; i++) {
+			ziel[i] = random.nextInt(anzahlFarben) + 1;	// Zielfeld mit Zufallsfarbe füllen
+			for (int j = 0; j<anzahlReihen; j++) {
+				pinn[i][j] = 0;		// Pinnfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
+				kontrolle[i][j] = 0;	// Kontrollfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
+			}
+		}*/
+	}
+	
+	
+	
+	// Konstruktor für Level
+	public Spielfeld(int level) {
+		
+		// Spielanpassung
+		if (level == 2) {
+			anzahlPinns = 5;
+			anzahlReihen = 9;
+		}
+		else if (level == 3) {
+			anzahlPinns = 6;
+			anzahlReihen = 10;
+		}
+		else {
+			anzahlPinns = 4;
+			anzahlReihen = 8;	
+		}
 		anzahlFarben = 6;
 		
 		// Hilfsvariablen vorbelegen
@@ -62,6 +110,9 @@ public class Spielfeld {
 	
 	
 	
+
+
+
 	// Funktionen
 	
 	
@@ -114,35 +165,14 @@ public class Spielfeld {
 					}
 				}
 				
-				
-				/*
-				// Schwarze Pinns funktionieren, weiße nicht
-				
-				boolean[] schonGeprueft = new boolean[anzahlPinns];
-				for (int i = 0; i<anzahlPinns; i++)
-					schonGeprueft[i] = false;
-					
-				for (int i = 0; i<anzahlPinns; i++) {
-					if (ziel[i] == pinn[i][aktiveReihe])
-						schwarz++;
-					
-					for (int j = 0; j<anzahlPinns; j++) {
-						if (ziel[i] == pinn[j][aktiveReihe] && !schonGeprueft[j]) {
-							weiss++;
-							schonGeprueft[j] = true;
-						}
-					}
-				}
-				*/
-				
-				
+				// Kontrollpinns setzen
 				for (int i = 0; i<weiss; i++)
-					kontrolle[i][aktiveReihe] = 1;
+					kontrolle[i][aktiveReihe] = 1; // weiße Pinns werden gesetzt
 				for (int i = 0; i<schwarz; i++)
-					kontrolle[i][aktiveReihe] = 2;
+					kontrolle[i][aktiveReihe] = 2; // schwarze Pinns werden gesetzt
 				if (schwarz == anzahlPinns)
 					spielende = true;
-					//spielende(gewonnen)
+					// Todo: spielende(gewonnen)
 				else
 					naechsteReihe();
 			}
@@ -156,9 +186,12 @@ public class Spielfeld {
 		aktiveReihe++;
 		if (aktiveReihe == anzahlReihen) {
 			spielende = true;
-			//spielende(verloren)
+			// Todo: spielende(verloren)
 		}
 	}
+	
+	
+	
 	
 	
 	
