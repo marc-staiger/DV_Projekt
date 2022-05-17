@@ -31,39 +31,12 @@ public class Spielfeld {
 	
 	
 	
-	// Konstruktor
+	// Konstruktoren
+	
+	// Standardkonstruktor
 	public Spielfeld() {
 		this(1);
-		
-		/*
-		// Spielanpassung
-		anzahlPinns = 4;
-		anzahlReihen = 8;
-		anzahlFarben = 6;
-		
-		// Hilfsvariablen vorbelegen
-		aktiveReihe = 0;
-		spielende = false;
-		
-		// Spielfeldarrays mit gewünschter Spielanpassung erstellen
-		pinn = new int[anzahlPinns][anzahlReihen];
-		kontrolle = new int[anzahlPinns][anzahlReihen];
-		ziel = new int[anzahlPinns];
-		
-		// Zufallsgenerator starten
-		Random random = new Random();
-		
-		// Spielfeldarrays mit Werten vorbelegen
-		for (int i = 0; i<anzahlPinns; i++) {
-			ziel[i] = random.nextInt(anzahlFarben) + 1;	// Zielfeld mit Zufallsfarbe füllen
-			for (int j = 0; j<anzahlReihen; j++) {
-				pinn[i][j] = 0;		// Pinnfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
-				kontrolle[i][j] = 0;	// Kontrollfelder mit 0 füllen (bedeutet: hat im Moment keine Farbe)
-			}
-		}*/
 	}
-	
-	
 	
 	// Konstruktor für Level
 	public Spielfeld(int level) {
@@ -85,7 +58,7 @@ public class Spielfeld {
 		
 		if (level == 4) {
 			// Todo Zeitlevel starten
-		}
+		} // Todo als switch unschreiben?? incl. 4??
 		
 		// Hilfsvariablen vorbelegen
 		aktiveReihe = 0;
@@ -110,27 +83,46 @@ public class Spielfeld {
 	}
 	
 	
+	
 	// Get-Methoden
-	//?? Wie einzelarray aus mehrd. Array?? nur mit for-Schleife??
+
 	int[][] getPinn(){return pinn;}
-	// Todo: int[] getPinn(int reihe){return pinn;} // Todo if-Abfrage!!!
+	
+	int[] getPinn(int reihe){
+		int[] zeile = new int[anzahlPinns];
+		for (int i=0; i<anzahlPinns; i++)
+			zeile[i] = pinn[i][reihe];
+		return zeile;
+		} // Todo if-Abfrage!!!
+	
 	int getPinn(int position, int reihe){return pinn[position][reihe];} // Todo if-Abfrage!!!
+	
 	int[][] getKontrolle(){return kontrolle;}
-	// Todo: int[] getKontrolle(int reihe){return kontrolle;} // Todo if-Abfrage!!!
+	
+	int[] getKontrolle(int reihe){
+		int[] zeile = new int[anzahlPinns];
+		for (int i=0; i<anzahlPinns; i++)
+			zeile[i] = kontrolle[i][reihe];
+		return zeile;
+	}// Todo if-Abfrage!!!
+	
 	int getKontrolle(int position, int reihe){return kontrolle[position][reihe];} // Todo if-Abfrage!!!
+
 	int[] getZiel(){return ziel;}
+
 	int getZiel(int position){return ziel[position];} // Todo if-Abfrage!!!
+
 	int getAnzahlPinns(){return anzahlPinns;}
+
 	int getAnzahlReihen(){return anzahlReihen;}
+
 	int getAnzahlFarben(){return anzahlFarben;}
+
 	int getAktiveReihe(){return aktiveReihe;}
 
 
 
-
 	// Methoden
-	
-	
 	
 	// Farbe schaltet bei Aufruf eins weiter, ohne wieder auf 0 (keine Farbe) zu gehen
 	public void pinnFarbe(int pinnPos, int reihe) { // pinnPos: 0 bis Anzahl-1 und reihe: 0 bis Anzahl-1
@@ -218,7 +210,7 @@ public class Spielfeld {
 	
 	
 	
-	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	// Hilfsfunktionen um Programm zu testen, werden später nicht benötigt
 	private void fuelleReihe() { ///////////////////////////////////////////
@@ -258,3 +250,4 @@ public class Spielfeld {
 	} ///////////////////////////////////////////
 
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
