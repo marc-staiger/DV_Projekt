@@ -5,8 +5,7 @@ package Test;
 
 // Bibliotheken einbinden
 import java.util.Random;
-import java.util.Scanner; ///////////////////////////////////////////////
-import javax.swing.*;
+import javax.swing.*; /////////////////////////////////////////////////
 
 
 
@@ -84,6 +83,10 @@ public class Spielfeld {
 		}
 		anzahlFarben = 6;
 		
+		if (level == 4) {
+			// Todo Zeitlevel starten
+		}
+		
 		// Hilfsvariablen vorbelegen
 		aktiveReihe = 0;
 		spielende = false;
@@ -107,13 +110,25 @@ public class Spielfeld {
 	}
 	
 	
-	
-	
-	
+	// Get-Methoden
+	//?? Wie einzelarray aus mehrd. Array?? nur mit for-Schleife??
+	int[][] getPinn(){return pinn;}
+	// Todo: int[] getPinn(int reihe){return pinn;} // Todo if-Abfrage!!!
+	int getPinn(int position, int reihe){return pinn[position][reihe];} // Todo if-Abfrage!!!
+	int[][] getKontrolle(){return kontrolle;}
+	// Todo: int[] getKontrolle(int reihe){return kontrolle;} // Todo if-Abfrage!!!
+	int getKontrolle(int position, int reihe){return kontrolle[position][reihe];} // Todo if-Abfrage!!!
+	int[] getZiel(){return ziel;}
+	int getZiel(int position){return ziel[position];} // Todo if-Abfrage!!!
+	int getAnzahlPinns(){return anzahlPinns;}
+	int getAnzahlReihen(){return anzahlReihen;}
+	int getAnzahlFarben(){return anzahlFarben;}
+	int getAktiveReihe(){return aktiveReihe;}
 
 
 
-	// Funktionen
+
+	// Methoden
 	
 	
 	
@@ -178,6 +193,14 @@ public class Spielfeld {
 			}
 		}
 	}
+	
+	
+	
+	public int wertung() {
+		int punkte = 0;
+		// Todo: Punktewertung
+		return punkte;
+	}
 
 	
 	
@@ -206,7 +229,6 @@ public class Spielfeld {
 		if(!spielende) {
 		for (int i = 0; i<anzahlPinns; i++)
 			pinn[i][aktiveReihe] = Character.getNumericValue(eingabe.charAt(i));//eingabewert.nextInt();
-
 		}
 	} ///////////////////////////////////////////
 	public boolean ausgabe() { ///////////////////////////////////////////
