@@ -58,7 +58,7 @@ public class Spielfeld {
 		
 		if (level == 4) {
 			// Todo Zeitlevel starten
-		} // Todo als switch unschreiben?? incl. 4??
+		} // Todo als switch umschreiben?? incl. 4??
 		
 		// Hilfsvariablen vorbelegen
 		aktiveReihe = 0;
@@ -89,22 +89,28 @@ public class Spielfeld {
 	int[][] getPinn(){return pinn;}
 	
 	int[] getPinn(int reihe){
-		int[] zeile = new int[anzahlPinns];
-		for (int i=0; i<anzahlPinns; i++)
-			zeile[i] = pinn[i][reihe];
+		int[] zeile = {}; //?Funktioniert das??
+		if (reihe >= 0 && reihe < anzahlReihen) {
+			zeile = new int[anzahlPinns];
+			for (int i=0; i<anzahlPinns; i++)
+				zeile[i] = pinn[i][reihe];
+		}
 		return zeile;
-		} // Todo if-Abfrage!!!
+	}
 	
 	int getPinn(int position, int reihe){return pinn[position][reihe];} // Todo if-Abfrage!!!
 	
 	int[][] getKontrolle(){return kontrolle;}
 	
 	int[] getKontrolle(int reihe){
-		int[] zeile = new int[anzahlPinns];
-		for (int i=0; i<anzahlPinns; i++)
-			zeile[i] = kontrolle[i][reihe];
+		int[] zeile = {}; //?Funktioniert das??
+		if(reihe >= 0 && reihe < anzahlReihen) {
+			zeile = new int[anzahlPinns];
+			for (int i=0; i<anzahlPinns; i++)
+				zeile[i] = kontrolle[i][reihe];
+		}
 		return zeile;
-	}// Todo if-Abfrage!!!
+	}
 	
 	int getKontrolle(int position, int reihe){return kontrolle[position][reihe];} // Todo if-Abfrage!!!
 
