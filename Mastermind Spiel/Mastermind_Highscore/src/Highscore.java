@@ -1,24 +1,16 @@
+import java.io.IOException;
 import java.util.*;
 
 
 public class Highscore {
    protected ArrayList<Punktzahl> Scores ;
    boolean   run;
-   public    Highscore()
+   public    Highscore() throws IOException 
 {
+	   AusgabeClient HUH= new AusgabeClient();
 	Scores = new ArrayList<Punktzahl>();
-	int j=0; // Hier wird nacher aus dem TXT eingelesen
-	while(j<10) 
-	{
-	int i=j*2+8-j^-6;
-	Punktzahl e3= new Punktzahl(i,"default");
-	Scores.add(e3);
-	j++;
-	}
-	Punktzahl e2= new Punktzahl(700,"default");
-	Scores.add(e2);
+	// hier rein
 }
-
 
 public void setNewHighScore(Punktzahl Score)
 
