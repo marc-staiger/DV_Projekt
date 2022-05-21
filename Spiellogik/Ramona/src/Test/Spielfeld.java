@@ -5,8 +5,7 @@ package Test;
 
 // Bibliotheken einbinden
 import java.util.Random;
-import java.util.Scanner; ///////////////////////////////////////////////
-import javax.swing.*;
+import javax.swing.*; /////////////////////////////////////////////////
 
 
 
@@ -28,13 +27,38 @@ public class Spielfeld {
 	private int aktiveReihe;
 	private boolean spielende;
 	
-	// Konstruktor
+	
+	
+	
+	
+	// Konstruktoren
+	
+	// Standardkonstruktor
 	public Spielfeld() {
+		this(1);
+	}
+	
+	// Konstruktor für Level
+	public Spielfeld(int level) {
 		
 		// Spielanpassung
-		anzahlPinns = 4;
-		anzahlReihen = 8;
+		if (level == 2) {
+			anzahlPinns = 5;
+			anzahlReihen = 9;
+		}
+		else if (level == 3) {
+			anzahlPinns = 6;
+			anzahlReihen = 10;
+		}
+		else {
+			anzahlPinns = 4;
+			anzahlReihen = 8;	
+		}
 		anzahlFarben = 6;
+		
+		if (level == 4) {
+			// Todo Zeitlevel starten
+		} // Todo als switch umschreiben?? incl. 4??
 		
 		// Hilfsvariablen vorbelegen
 		aktiveReihe = 0;
@@ -60,11 +84,51 @@ public class Spielfeld {
 	
 	
 	
+	// Get-Methoden
+
+	int[][] getPinn(){return pinn;}
 	
+	int[] getPinn(int reihe){
+		int[] zeile = {}; //?Funktioniert das??
+		if (reihe >= 0 && reihe < anzahlReihen) {
+			zeile = new int[anzahlPinns];
+			for (int i=0; i<anzahlPinns; i++)
+				zeile[i] = pinn[i][reihe];
+		}
+		return zeile;
+	}
 	
-	// Funktionen
+	int getPinn(int position, int reihe){return pinn[position][reihe];} // Todo if-Abfrage!!!
 	
+	int[][] getKontrolle(){return kontrolle;}
 	
+	int[] getKontrolle(int reihe){
+		int[] zeile = {}; //?Funktioniert das??
+		if(reihe >= 0 && reihe < anzahlReihen) {
+			zeile = new int[anzahlPinns];
+			for (int i=0; i<anzahlPinns; i++)
+				zeile[i] = kontrolle[i][reihe];
+		}
+		return zeile;
+	}
+	
+	int getKontrolle(int position, int reihe){return kontrolle[position][reihe];} // Todo if-Abfrage!!!
+
+	int[] getZiel(){return ziel;}
+
+	int getZiel(int position){return ziel[position];} // Todo if-Abfrage!!!
+
+	int getAnzahlPinns(){return anzahlPinns;}
+
+	int getAnzahlReihen(){return anzahlReihen;}
+
+	int getAnzahlFarben(){return anzahlFarben;}
+
+	int getAktiveReihe(){return aktiveReihe;}
+
+
+
+	// Methoden
 	
 	// Farbe schaltet bei Aufruf eins weiter, ohne wieder auf 0 (keine Farbe) zu gehen
 	public void pinnFarbe(int pinnPos, int reihe) { // pinnPos: 0 bis Anzahl-1 und reihe: 0 bis Anzahl-1
@@ -114,39 +178,26 @@ public class Spielfeld {
 					}
 				}
 				
-				
-				/*
-				// Schwarze Pinns funktionieren, weiße nicht
-				
-				boolean[] schonGeprueft = new boolean[anzahlPinns];
-				for (int i = 0; i<anzahlPinns; i++)
-					schonGeprueft[i] = false;
-					
-				for (int i = 0; i<anzahlPinns; i++) {
-					if (ziel[i] == pinn[i][aktiveReihe])
-						schwarz++;
-					
-					for (int j = 0; j<anzahlPinns; j++) {
-						if (ziel[i] == pinn[j][aktiveReihe] && !schonGeprueft[j]) {
-							weiss++;
-							schonGeprueft[j] = true;
-						}
-					}
-				}
-				*/
-				
-				
+				// Kontrollpinns setzen
 				for (int i = 0; i<weiss; i++)
-					kontrolle[i][aktiveReihe] = 1;
+					kontrolle[i][aktiveReihe] = 1; // weiße Pinns werden gesetzt
 				for (int i = 0; i<schwarz; i++)
-					kontrolle[i][aktiveReihe] = 2;
+					kontrolle[i][aktiveReihe] = 2; // schwarze Pinns werden gesetzt
 				if (schwarz == anzahlPinns)
 					spielende = true;
-					//spielende(gewonnen)
+					// Todo: spielende(gewonnen)
 				else
 					naechsteReihe();
 			}
 		}
+	}
+	
+	
+	
+	public int wertung() {
+		int punkte = 0;
+		// Todo: Punktewertung
+		return punkte;
 	}
 
 	
@@ -156,13 +207,16 @@ public class Spielfeld {
 		aktiveReihe++;
 		if (aktiveReihe == anzahlReihen) {
 			spielende = true;
-			//spielende(verloren)
+			// Todo: spielende(verloren)
 		}
 	}
 	
 	
 	
 	
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	// Hilfsfunktionen um Programm zu testen, werden später nicht benötigt
 	private void fuelleReihe() { ///////////////////////////////////////////
@@ -173,7 +227,6 @@ public class Spielfeld {
 		if(!spielende) {
 		for (int i = 0; i<anzahlPinns; i++)
 			pinn[i][aktiveReihe] = Character.getNumericValue(eingabe.charAt(i));//eingabewert.nextInt();
-
 		}
 	} ///////////////////////////////////////////
 	public boolean ausgabe() { ///////////////////////////////////////////
@@ -203,3 +256,4 @@ public class Spielfeld {
 	} ///////////////////////////////////////////
 
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
