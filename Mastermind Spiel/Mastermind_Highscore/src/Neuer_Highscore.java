@@ -66,7 +66,7 @@ public class Neuer_Highscore extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Punktzahl e1 = new Punktzahl(erreichtePunkte, txtName.getText());
+				HighscoreEntry e1 = new HighscoreEntry(erreichtePunkte, txtName.getText());
 				HIGH.setNewHighScore(e1);
 				setVisible(false);
 			}

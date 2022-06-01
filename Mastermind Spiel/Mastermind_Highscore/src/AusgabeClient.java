@@ -37,7 +37,7 @@ public static void VerbindeMitServer() throws IOException {
     		
     public void sendMessage() throws IOException {
     		 
-    Socket clientSocket = new Socket("192.168.178.31", 6666);
+    Socket clientSocket = new Socket("localhost", 6666);
     	 
     	
     System.out.println("Client 2");
