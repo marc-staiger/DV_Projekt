@@ -7,7 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Button;
 import java.awt.FlowLayout;
-import net.miginfocom.swing.MigLayout;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;

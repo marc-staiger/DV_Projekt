@@ -8,7 +8,7 @@ public class Highscore {
    protected ArrayList<HighscoreEntry> Scores ;
    protected ArrayList<String> String_Scores ;
    boolean   run;
-   public    Highscore() throws IOException 
+    
 {
 	   AusgabeClient HUH= new AusgabeClient();
 	Scores = new ArrayList<HighscoreEntry>();
@@ -16,7 +16,7 @@ public class Highscore {
 	// hier rein
 }
 
-public void setNewHighScore(HighscoreEntry Score)
+public Highscore()
 
 {
 	try {
@@ -36,7 +36,7 @@ public void setNewHighScore(HighscoreEntry Score)
 	
 	
 	
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 9; i++) {
 		
 	
 		    String Temp = AusgabeClient.ArrayzumSortieren().get(i);
@@ -50,7 +50,9 @@ public void setNewHighScore(HighscoreEntry Score)
     	    
     	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name);
     	    Scores.add(Neu);
-	}}
+	}
+SortiereHighscore();
+}
 		
 		
   

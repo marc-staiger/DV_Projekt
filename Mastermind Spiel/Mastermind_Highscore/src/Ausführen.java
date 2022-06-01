@@ -3,26 +3,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Ausführen {
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) {
 		 
-       Highscore High = new Highscore();
-        High.SortiereHighscore();
-        
-   
-      	 Spielbrett HUHU4 = new Spielbrett();
-       	HUHU4.Ausführen();
-        //---------Timo-----------------------------------------------
        
-        System.out.println("Main START");
+//	      	
+//      	 Spielbrett HUHU4 = new Spielbrett();
+//      	 
+//       	HUHU4.Ausführen();
+////        Neuer_Highscore HUHU1 = new Neuer_Highscore();
+////      	HUHU1.Ausführen(900);
 		
-		
-		
-		System.out.println("Main FERTIG");
-		
-		//---------------------------------------------------------
-		
-	     Neuer_Highscore HUHU1 = new Neuer_Highscore();
-	      	HUHU1.Ausführen(900);
+		Highscore_GUI HUHU = new Highscore_GUI();
+    	HUHU.Ausführen();
     	
        	
        	
