@@ -9,30 +9,25 @@ import java.util.Scanner;
 public class AusgabeClient {
 
 	
-public Scanner in;
-public PrintWriter out;
+public static Scanner in;
+public static PrintWriter out;
     
 //-----------------------------------------------------------------------------------------------------------------------    
     
-    
-    //public static void main(String[] args) throws IOException
-    
-    //{
-    	
-    //AusgabeClient client= new AusgabeClient();
-   	//client.sendMessage();
-    	        	
-   // }
+
     
 public static void VerbindeMitServer() throws IOException {
 	
-	 System.out.println("Client main start");
+	System.out.println("Client main start");
 	 
 	AusgabeClient client= new AusgabeClient();
 	
 	System.out.println("Client 1");
 	
    	client.sendMessage();
+   	
+   	//ArrayzumSortieren();	
+	 	
 	
    	System.out.println("Client main fertig");
 }
@@ -40,20 +35,26 @@ public static void VerbindeMitServer() throws IOException {
        
   //-----------------------------------------------------------------------------------------------------------------------   
     		
-    	public void sendMessage() throws IOException {
+    public void sendMessage() throws IOException {
     		 
-    	Socket clientSocket = new Socket("192.168.178.31", 6666);
+    Socket clientSocket = new Socket("192.168.178.31", 6666);
     	 
     	
-    	System.out.println("Client 2");
+    System.out.println("Client 2");
     	  
-    	PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-        Scanner in = new Scanner(new BufferedReader(new InputStreamReader(clientSocket.getInputStream())));
+    out = new PrintWriter(clientSocket.getOutputStream(), true);
+    in = new Scanner(new BufferedReader(new InputStreamReader(clientSocket.getInputStream())));
         
+    }        
         
-        
+    	
+    	
 //Einlesen vom Server und abspeichern in Array  
 //-----------------------------------------------------------------------------------------------------------------------   
+public static  ArrayList<String> ArrayzumSortieren()
+{
+	
+        
         System.out.println("Client Einslesen");
         
     	
@@ -64,9 +65,11 @@ public static void VerbindeMitServer() throws IOException {
 		
 		System.out.println("Client Einslesen 2");
 		
+		
+		
 		while(i <=9)
 		{
-			
+		
 		HighscoreUnsortiert.add(in.nextLine());
 		
 		i++;		
@@ -74,20 +77,18 @@ public static void VerbindeMitServer() throws IOException {
 		}
 			
 		System.out.println("Einlesen vom Server/Senden an Sortierung "+HighscoreUnsortiert);
-		System.out.println("Server 7");
 		
-//Synchronisieren
-//-----------------------------------------------------------------------------------------------------------------------   
-		System.out.println("Start Sync Client");
-		out.println("SYNC");
 		
-		while(in.nextLine()=="SYNC")
-		{
-		System.out.println("Synchro"+i);
-		i++;	
-		}	
-		System.out.println("Sync Client erfolgreich"); 
 		
+		return HighscoreUnsortiert;
+		
+}
+
+
+	
+public static void ÜbergabeServer() throws IOException
+{		    	
+  		
 //Übergabe an Server		
 //-----------------------------------------------------------------------------------------------------------------------               
         
@@ -95,7 +96,7 @@ public static void VerbindeMitServer() throws IOException {
     	SortierterHighscore  = new ArrayList<String>(10);	
     	
     	
-    	System.out.println("Einlesen vom Sortierung"+Sortierung_Test.ArrayAusgabe());
+    	//System.out.println("Einlesen vom Sortierung"+Sortierung_Test_2.ArrayAusgabe());
     	SortierterHighscore  = Sortierung_Test.ArrayAusgabe();
 
     	System.out.println("Sortierung Nr5"+SortierterHighscore.get(5));
@@ -104,8 +105,8 @@ public static void VerbindeMitServer() throws IOException {
     	
     	System.out.println("Client 3");
     	
-    	
-
+    
+  	
     
     	int k = 0;
 		while(k <=9)
@@ -124,4 +125,7 @@ public static void VerbindeMitServer() throws IOException {
         
 }  
     
+     
+       
+
      

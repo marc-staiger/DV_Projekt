@@ -13,20 +13,21 @@ import java.io.FileNotFoundException;
 
 //-----------------------------------------------------------------------------------------------------------------------   
 
-public class SpeicherServer 
-
+public class SpeicherServer
 {
-    private static ServerSocket serverSocket;
+    private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
+   
+    
     
   //-----------------------------------------------------------------------------------------------------------------------   
  
   public static void main(String[] args) throws IOException
     {
-		  
-    SpeicherServer server=new SpeicherServer();
+	
+	SpeicherServer server=new SpeicherServer();
     
     System.out.println("Server START");
     
@@ -35,7 +36,7 @@ public class SpeicherServer
     System.out.println("Server FERTIG");
     
     }
-     
+
     
  //-----------------------------------------------------------------------------------------------------------------------   
   
@@ -43,24 +44,63 @@ public class SpeicherServer
     	
     	System.out.println("Server 2");
     	
+    	
+    	
+    	
     	ServerSocket serverSocket = new ServerSocket(port);
     	
     	System.out.println("Server 3");
+    
+    
     	
         Socket clientSocket = serverSocket.accept();
-        
+  		 
+  		
         System.out.println("Server 4");
         
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         Scanner in = new Scanner(new BufferedReader(new InputStreamReader(clientSocket.getInputStream())));
         
-        
-      
+       
 //Datei Lesen 
 //----------------------------------------------------------------------------------------------------------------------
         try{
-        						
-        File Datei1= new File(System.getProperty("java.io.tmpdir")+"//12.txt");
+        	
+        
+		
+        File Datei1= new File(System.getProperty("java.io.tmpdir")+"//Highscore_Speicher.txt");
+       
+       
+        
+        if (Datei1.createNewFile())
+            {
+        	System.out.println("Speicherdatei wurde angelegt");
+            PrintWriter PrintWriterzwei = new PrintWriter(new FileWriter(Datei1));
+			
+    		
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+            PrintWriterzwei.println("0");
+    		PrintWriterzwei.println("0");
+    		PrintWriterzwei.println("0");
+    		
+    		PrintWriterzwei.flush();
+    		PrintWriterzwei.close();
+           
+            
+            }
+            
+            
+        else
+            System.out.println("Speicherdatei besteht bereits");
+        
+        
+        
         Scanner ScannerNr1 = new Scanner(Datei1);
         					
         ArrayList<String> AusgabePunkte;
@@ -73,7 +113,7 @@ public class SpeicherServer
         			
         }
         			
-        System.out.println("Eingelesen Array"+AusgabePunkte);
+        System.out.println("Eingelesen Array von Txt "+AusgabePunkte);
         
         int k = 0;
 		while(k <=9)
@@ -90,22 +130,7 @@ public class SpeicherServer
         e.printStackTrace();}
         			   
         
-//Synchronisieren
-//-----------------------------------------------------------------------------------------------------------------------   
-        int i = 0;
-        
-        System.out.println("Start Sync Server");  
-        
-        while(in.nextLine()=="SYNC")
-		{
-		
-		System.out.println("Synchro"+i);
-		i++;	
-		}	
-        System.out.println("Sync Server erfolgreich");
-        out.println("SYNC");
-        out.flush();
-        
+
 //Einlesen vom Client       
 //-----------------------------------------------------------------------------------------------------------------------   			
     	System.out.println("Server 6");
@@ -115,9 +140,10 @@ public class SpeicherServer
 		Highscore = new ArrayList<String>(10);
 		
 		
-//		System.out.println("[wdawdaw]"+in.nextLine());
-//		System.out.println("[wdawdaw2]"+in.nextLine());
+	
 		
+		
+		int i =0;
 		while(i <=9)
 		{
 			
@@ -138,11 +164,10 @@ public class SpeicherServer
 //----------------------------------------------------------------------------------------------------------------------
 		try 
 		{
-		File Datei2 = new File (System.getProperty("java.io.tmpdir")+"//12.txt");
-		Datei2.createNewFile();
+		
 			
 		System.out.println("Server 8");	
-			
+		File Datei2 = new File (System.getProperty("java.io.tmpdir")+"//Highscore_Speicher.txt");
 		PrintWriter eins = new PrintWriter(new FileWriter(Datei2));
 			
 		
@@ -177,8 +202,7 @@ public class SpeicherServer
 		}		
 		
 	    
-		    
-		public void stop() throws IOException {
+		public  void stop() throws IOException {
 		        in.close();
 		        out.close();
 		        clientSocket.close();
