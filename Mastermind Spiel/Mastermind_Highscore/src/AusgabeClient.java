@@ -85,7 +85,40 @@ public static  ArrayList<String> ArrayzumSortieren()
 }
 
 
+public static  ArrayList<String> ReadHighscore()
+{
 	
+        
+        System.out.println("Client Einslesen");
+        
+    	
+		ArrayList<String> Highscore;
+		Highscore = new ArrayList<String>(10);
+	
+				
+		int i=0;
+		
+		System.out.println("Client Einslesen 2");
+		
+		
+		
+		while(i <=9)
+		{
+		
+		Highscore.add(in.nextLine());
+		
+		i++;		
+		
+		}
+			
+		System.out.println("Einlesen vom Server/Senden an Sortierung "+Highscore);
+		
+		
+		
+		return Highscore;
+		
+}
+
 public static void ÜbergabeServer() throws IOException
 {		    	
   		

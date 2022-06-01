@@ -8,7 +8,7 @@ public class Sortierung_Test {
 	public static ArrayList<String> ArrayAusgabe() throws IOException {
 		
 		
-		System.out.println("unsortiert"+AusgabeClient.ArrayzumSortieren());
+//		System.out.println("unsortiert"+AusgabeClient.ArrayzumSortieren());
 			
 		ArrayList<String> SortierterHighscore;
 		SortierterHighscore = new ArrayList<String>(10);	

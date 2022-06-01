@@ -34,19 +34,21 @@ public Highscore()
 	}
 	
 	
-	
+	int PKTE = 0 ;
 	
 	for (int i = 0; i < 9; i++) {
 		
+		String s =  AusgabeClient.ReadHighscore().get(i);
+	   	Pattern p = Pattern.compile("[+-]?[0-9]+");
+	   	Matcher m = p.matcher(s);
+	   	while ( m.find() ) {
+	    	     PKTE=Integer.parseInt(s.substring(m.start(), m.end()));
+	   	}    	
 	
-		    String Temp = AusgabeClient.ArrayzumSortieren().get(i);
-		    System.out.print(Temp);
-		
-         	Pattern p = Pattern.compile("[+-]?[0-9]+");
-           	Matcher m = p.matcher(Temp);
-    	    int PKTE=Integer.parseInt(Temp.substring(m.start(), m.end()));
-    	    
-    	    String Name = String_Scores.get(i).replaceAll("[0-9]","");
+	    String firstname1 = AusgabeClient.ReadHighscore().get(i);
+        firstname1 = firstname1.replaceAll("[0-9]","");
+       
+          String Name=firstname1;
     	    
     	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name);
     	    Scores.add(Neu);

@@ -13,8 +13,11 @@ public class Ausführen {
 ////        Neuer_Highscore HUHU1 = new Neuer_Highscore();
 ////      	HUHU1.Ausführen(900);
 		
-		Highscore_GUI HUHU = new Highscore_GUI();
-    	HUHU.Ausführen();
+//		Highscore_GUI HUHU = new Highscore_GUI();
+//    	HUHU.Ausführen();
+		Highscore Test = new Highscore();
+		System.out.println(Test.Scores.get(3).getName());
+		
     	
        	
        	
