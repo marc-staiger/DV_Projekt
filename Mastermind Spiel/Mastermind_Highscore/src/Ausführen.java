@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Ausführen {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		 
        
 //	      	
@@ -15,6 +15,17 @@ public class Ausführen {
 		
 //		Highscore_GUI HUHU = new Highscore_GUI();
 //    	HUHU.Ausführen();
+//		
+//			AusgabeClient.VerbindeMitServer();
+//		
+//		
+//	
+//			AusgabeClient.ÜbergabeServer();
+		
+		
+		
+		
+
 		Highscore Test = new Highscore();
 		System.out.println(Test.Scores.get(3).getName());
 		

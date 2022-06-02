@@ -39,13 +39,14 @@ public Highscore()
 	for (int i = 0; i < 9; i++) {
 		
 		String s =  AusgabeClient.ReadHighscore().get(i);
+		String s1= s;
 	   	Pattern p = Pattern.compile("[+-]?[0-9]+");
 	   	Matcher m = p.matcher(s);
 	   	while ( m.find() ) {
 	    	     PKTE=Integer.parseInt(s.substring(m.start(), m.end()));
 	   	}    	
 	
-	    String firstname1 = AusgabeClient.ReadHighscore().get(i);
+	    String firstname1 = s1;
         firstname1 = firstname1.replaceAll("[0-9]","");
        
           String Name=firstname1;
