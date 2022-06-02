@@ -8,7 +8,6 @@ import java.util.Random;
 import javax.swing.*; /////////////////////////////////////////////////
 
 
-
 public class Spielfeld {
 
 	// Attribute
@@ -89,34 +88,48 @@ public class Spielfeld {
 	int[][] getPinn(){return pinn;}
 	
 	int[] getPinn(int reihe){
-		int[] zeile = {}; //?Funktioniert das??
-		if (reihe >= 0 && reihe < anzahlReihen) {
+		int[] zeile = null;
+		//if (reihe >= 0 && reihe < anzahlReihen) {
 			zeile = new int[anzahlPinns];
 			for (int i=0; i<anzahlPinns; i++)
 				zeile[i] = pinn[i][reihe];
-		}
+		//}
 		return zeile;
 	}
 	
-	int getPinn(int position, int reihe){return pinn[position][reihe];} // Todo if-Abfrage!!!
+	int getPinn(int position, int reihe){
+		//if(position >= 0 && position < anzahlPinns)
+		//	if(reihe >= 0 && reihe < anzahlReihen)
+				return pinn[position][reihe];
+		//return -1;
+		}
 	
 	int[][] getKontrolle(){return kontrolle;}
 	
 	int[] getKontrolle(int reihe){
-		int[] zeile = {}; //?Funktioniert das??
-		if(reihe >= 0 && reihe < anzahlReihen) {
+		int[] zeile = null;
+		//if(reihe >= 0 && reihe < anzahlReihen) {
 			zeile = new int[anzahlPinns];
 			for (int i=0; i<anzahlPinns; i++)
 				zeile[i] = kontrolle[i][reihe];
-		}
+		//}
 		return zeile;
 	}
 	
-	int getKontrolle(int position, int reihe){return kontrolle[position][reihe];} // Todo if-Abfrage!!!
+	int getKontrolle(int position, int reihe){
+		//if(position >= 0 && position < anzahlPinns)
+		//	if(reihe >= 0 && reihe < anzahlReihen)
+				return kontrolle[position][reihe];
+		//return -1;
+	}
 
 	int[] getZiel(){return ziel;}
 
-	int getZiel(int position){return ziel[position];} // Todo if-Abfrage!!!
+	int getZiel(int position){
+		//if(position >= 0 && position < anzahlPinns)
+			return ziel[position];
+		//return -1;
+	}
 
 	int getAnzahlPinns(){return anzahlPinns;}
 
@@ -220,19 +233,15 @@ public class Spielfeld {
 	
 	// Hilfsfunktionen um Programm zu testen, werden später nicht benötigt
 	private void fuelleReihe() { ///////////////////////////////////////////
-		//Scanner eingabewert = new Scanner(System.in);
 		String eingabe = JOptionPane.showInputDialog("Zahl eingeben");
 		
 		
-		if(!spielende) {
-		for (int i = 0; i<anzahlPinns; i++)
-			pinn[i][aktiveReihe] = Character.getNumericValue(eingabe.charAt(i));//eingabewert.nextInt();
-		}
+
+	for (int i = 0; i<anzahlPinns; i++)
+		pinn[i][aktiveReihe] = Character.getNumericValue(eingabe.charAt(i));//eingabewert.nextInt();
+
 	} ///////////////////////////////////////////
 	public boolean ausgabe() { ///////////////////////////////////////////
-		for (int i = 0; i<anzahlPinns; i++)
-			System.out.print(ziel[i] + "  ");
-		System.out.println();
 		
 		fuelleReihe();
 		kontrolle();
@@ -247,6 +256,17 @@ public class Spielfeld {
 			return true;
 		}
 		else {
+			int x = aktiveReihe-1;
+			if (aktiveReihe < anzahlReihen) 
+				x = aktiveReihe;
+			
+			for (int i = 0; i<anzahlPinns; i++)
+				System.out.print(pinn[i][x] + "  ");
+			System.out.print("|  ");
+			for (int i = 0; i<anzahlPinns; i++)
+				System.out.print(kontrolle[i][x] + "  ");
+			System.out.println();
+
 			System.out.println("Spiel zu Ende!");
 			for (int i = 0; i<anzahlPinns; i++)
 				System.out.print(ziel[i] + "  ");

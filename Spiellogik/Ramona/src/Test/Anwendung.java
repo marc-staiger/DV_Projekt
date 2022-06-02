@@ -6,7 +6,7 @@ public class Anwendung {
 				
 				boolean weiter = true;
 				Spielfeld spielfeld = new Spielfeld();
-				
+//				spielfeld.zielausgabe();
 				while (weiter)
 					weiter = spielfeld.ausgabe();
 
