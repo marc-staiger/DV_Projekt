@@ -24,6 +24,8 @@ public class Sortierung_Test {
 		SortierterHighscore.add("Spieler 8   1123");
 		SortierterHighscore.add("Spieler 9   12za3");
 		SortierterHighscore.add("Spieler 0   613");
+		SortierterHighscore.add("Spieler 0   613");
+		SortierterHighscore.add("Spieler 0   613");
 		
 		System.out.println("sortiert"+SortierterHighscore);
 		

@@ -27,17 +27,11 @@ public class Highscore_GUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public void Ausführen() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void Ausführen() {
+		
 					Highscore_GUI frame = new Highscore_GUI();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+				
 	}
 
 	/**

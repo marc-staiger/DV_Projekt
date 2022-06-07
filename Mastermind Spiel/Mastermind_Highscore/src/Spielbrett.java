@@ -94,8 +94,7 @@ public class Spielbrett extends JFrame {
 		btnHighscore.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Highscore_GUI HUHU = new Highscore_GUI();
-		    	HUHU.Ausführen();
+				Highscore_GUI.Ausführen();
 			}
 		});
 		btnHighscore.setBackground(Color.PINK);
