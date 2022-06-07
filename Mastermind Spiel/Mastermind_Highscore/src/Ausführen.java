@@ -16,11 +16,11 @@ public class Ausführen {
 //		Highscore_GUI HUHU = new Highscore_GUI();
 //    	HUHU.Ausführen();
 //		
-//			AusgabeClient.VerbindeMitServer();
+			AusgabeClient.VerbindeMitServer();
 //		
 //		
 //	
-//			AusgabeClient.ÜbergabeServer();
+			AusgabeClient.ÜbergabeServer();
 		
 		
 		

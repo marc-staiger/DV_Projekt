@@ -51,36 +51,14 @@ public static void VerbindeMitServer() throws IOException {
     	
 //Einlesen vom Server und abspeichern in Array  
 //-----------------------------------------------------------------------------------------------------------------------   
-public static  ArrayList<String> ArrayzumSortieren()
+public static String ArrayzumSortieren()
 {
 	
+       String S= in.nextLine();
         
-        System.out.println("Client Einslesen");
-        
-    	
-		ArrayList<String> HighscoreUnsortiert;
-		HighscoreUnsortiert = new ArrayList<String>(10);
-				
-		int i=0;
+       
 		
-		System.out.println("Client Einslesen 2");
-		
-		
-		
-		while(i <=9)
-		{
-		
-		HighscoreUnsortiert.add(in.nextLine());
-		
-		i++;		
-		
-		}
-			
-		System.out.println("Einlesen vom Server/Senden an Sortierung "+HighscoreUnsortiert);
-		
-		
-		
-		return HighscoreUnsortiert;
+		return S;
 		
 }
 

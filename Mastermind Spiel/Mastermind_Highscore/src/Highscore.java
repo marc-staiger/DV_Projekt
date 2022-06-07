@@ -19,41 +19,72 @@ public class Highscore {
 public Highscore()
 
 {
-	try {
-		AusgabeClient.VerbindeMitServer();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	//try {
+	//	AusgabeClient.VerbindeMitServer();
+//	} catch (IOException e) {
+//		 TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 	
-	try {
-		AusgabeClient.ÜbergabeServer();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+//	try {
+//		AusgabeClient.ÜbergabeServer();
+//	} catch (IOException e) {
+//		 TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 	
 	
-	int PKTE = 0 ;
-	
-	for (int i = 0; i < 9; i++) {
+	 System.out.println("Client Einslesen");
+     
+ 	
+		ArrayList<String> HighscoreUnsortiert;
+		HighscoreUnsortiert = new ArrayList<String>(10);
+				
 		
-		String s =  AusgabeClient.ReadHighscore().get(i);
-		String s1= s;
-	   	Pattern p = Pattern.compile("[+-]?[0-9]+");
-	   	Matcher m = p.matcher(s);
-	   	while ( m.find() ) {
-	    	     PKTE=Integer.parseInt(s.substring(m.start(), m.end()));
-	   	}    	
+		
+		System.out.println("Client Einslesen 2");
+		
+		int k=0;
+		
+		while(k <=9)
+		{
+		
+		HighscoreUnsortiert.add(AusgabeClient.ArrayzumSortieren());
+		
+		k++;		
+		
+		}
+			
+		System.out.println("Einlesen vom Server/Senden an Sortierung "+HighscoreUnsortiert);
+		System.out.println("Einlesen beendet");
+		//---------------------------------------------------------------------------------
 	
-	    String firstname1 = s1;
-        firstname1 = firstname1.replaceAll("[0-9]","");
-       
-          String Name=firstname1;
-    	    
-    	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name);
-    	    Scores.add(Neu);
-	}
+	
+		System.out.println("Einlesen vom Server/Senden an Sortierung "+HighscoreUnsortiert);
+	
+	
+	
+//	
+//	int PKTE = 0 ;
+//	
+//	for (int i = 0; i < 9; i++) {
+//		
+//		String s =  AusgabeClient.ReadHighscore().get(i);
+//		String s1= s;
+//	   	Pattern p = Pattern.compile("[+-]?[0-9]+");
+//	   	Matcher m = p.matcher(s);
+//	   	while ( m.find() ) {
+//	    	     PKTE=Integer.parseInt(s.substring(m.start(), m.end()));
+//	   	}    	
+//	
+//	    String firstname1 = s1;
+//        firstname1 = firstname1.replaceAll("[0-9]","");
+//       
+//          String Name=firstname1;
+//    	    
+//    	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name);
+//    	    Scores.add(Neu);
+//	}
 SortiereHighscore();
 }
 		
