@@ -19,7 +19,7 @@ public class Highscore {
 public Highscore() throws IOException
 
 {
-	
+	 AusgabeClient.VerbindeMitServer();
 	
 	 System.out.println("Client Einslesen");
      
@@ -74,7 +74,7 @@ public Highscore() throws IOException
     	    }
 	
 	
-
+	AusgabeClient.ÜbergabeServer();
 	AusgabeClient.ClientStop();
 	
 SortiereHighscore();

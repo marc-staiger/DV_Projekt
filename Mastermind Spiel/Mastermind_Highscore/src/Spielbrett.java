@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.awt.Label;
 import javax.swing.JTextArea;
 import java.awt.TextField;
@@ -94,7 +95,12 @@ public class Spielbrett extends JFrame {
 		btnHighscore.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Highscore_GUI.Ausführen();
+				try {
+					Highscore_GUI.Ausführen();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnHighscore.setBackground(Color.PINK);

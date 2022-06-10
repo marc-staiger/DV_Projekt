@@ -53,14 +53,14 @@ public class SpeicherServer
     	
     	ServerSocket serverSocket = new ServerSocket(port);
     	
-    	System.out.println("Server 3");
+    	System.out.println("Server wartet auf Verbindung");
     
     
     	
         Socket clientSocket = serverSocket.accept();
   		 
   		
-        System.out.println("Server 4");
+        System.out.println("Server verbindet");
         
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         Scanner in = new Scanner(new BufferedReader(new InputStreamReader(clientSocket.getInputStream())));

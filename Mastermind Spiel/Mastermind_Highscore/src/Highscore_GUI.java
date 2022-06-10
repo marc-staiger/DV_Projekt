@@ -29,7 +29,7 @@ public class Highscore_GUI extends JFrame {
 	 * Launch the application.
 	 * @throws IOException 
 	 */
-	public static void Ausführen()  {
+	public static void Ausführen() throws IOException  {
 		
 					Highscore_GUI frame = new Highscore_GUI();
 					frame.setVisible(true);
@@ -40,7 +40,7 @@ public class Highscore_GUI extends JFrame {
 	 * Create the frame.
 	 * @throws IOException 
 	 */
-	public Highscore_GUI() {
+	public Highscore_GUI() throws IOException {
 		Highscore HIGH = new Highscore();
 		HIGH.SortiereHighscore();
 		setDefaultCloseOperation(HIDE_ON_CLOSE);

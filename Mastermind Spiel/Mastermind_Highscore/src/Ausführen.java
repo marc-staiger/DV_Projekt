@@ -16,7 +16,7 @@ public class Ausführen {
 //	Highscore_GUI HUHU = new Highscore_GUI();
 //   	HUHU.Ausführen();
 ////		
-      AusgabeClient.VerbindeMitServer();
+     
 
 //		Highscore Test = new Highscore();
 //		int i=0;
@@ -31,7 +31,7 @@ public class Ausführen {
       HUHU4.Ausführen();
   
 //  	Highscore_GUI.Ausführen();
-		AusgabeClient.ÜbergabeServer();
+		
 		
 	    	
 	    	
