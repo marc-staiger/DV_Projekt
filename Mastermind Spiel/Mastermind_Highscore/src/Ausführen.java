@@ -29,6 +29,8 @@ public class Ausführen {
       Spielbrett HUHU4 = new Spielbrett();
 
       HUHU4.Ausführen();
+   Neuer_Highscore hu = new Neuer_Highscore();
+      hu.Ausführen(4);
   
 //  	Highscore_GUI.Ausführen();
 		

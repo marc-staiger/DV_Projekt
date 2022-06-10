@@ -140,6 +140,38 @@ public static void ÜbergabeServer() throws IOException
 		
         
     	}  	 
+public static void Save(ArrayList<String> SortierterHighscore) throws IOException
+{		    	
+  		
+//Übergabe an Server		
+//-----------------------------------------------------------------------------------------------------------------------               
+        
+    	
+    	SortierterHighscore  = new ArrayList<String>(10);	
+    	
+    	
+    	//System.out.println("Einlesen vom Sortierung"+Sortierung_Test_2.ArrayAusgabe());
+    	
+
+       
+  	
+    
+    	int k = 0;
+		while(k <=9)
+		{
+        out.println(SortierterHighscore.get(k));	
+        k++;	
+        out.flush();
+		}
+		
+		
+     
+        System.out.println("Client SM fertig");
+       
+    	
+		
+        
+    	}  	 
 
 
 public static void ClientStop() throws IOException

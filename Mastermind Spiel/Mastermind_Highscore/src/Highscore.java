@@ -81,7 +81,13 @@ SortiereHighscore();
 }
 		
 		
-  
+  public void setNewHighScore(int erreichtePunkte,String Name) {
+	  
+	  HighscoreEntry e1 = new HighscoreEntry(erreichtePunkte, Name);
+	  Scores.add(e1);
+	  SortiereHighscore();
+	  
+  }
 
 public HighscoreEntry getHighscore(int i)
 

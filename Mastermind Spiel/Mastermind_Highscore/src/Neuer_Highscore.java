@@ -10,10 +10,13 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class Neuer_Highscore extends JFrame {
-    private  static double erreichtePunkte;
+    private  static int erreichtePunkte;
+    private ArrayList<String> Back_value;
 	private JPanel contentPane;
 	private JTextField txtNewHighscore;
 	private JTextField txtName;
@@ -21,11 +24,13 @@ public class Neuer_Highscore extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * @throws IOException 
 	 */
-	public void Ausführen(double PKT ){
+	public void Ausführen(int PKT ) throws IOException{
+		Back_value = new ArrayList<String>();
 		  erreichtePunkte=PKT;
 		Highscore HIGH = new Highscore();
-		  if(HIGH.Scores.get(10).getPunktzahl()<PKT) {
+		  if(HIGH.Scores.get(9).getPunktzahl()<PKT) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -42,8 +47,9 @@ public class Neuer_Highscore extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws IOException 
 	 */
-	public Neuer_Highscore() {
+	public Neuer_Highscore() throws IOException {
         setResizable(false);
 		Highscore HIGH = new Highscore();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,8 +72,25 @@ public class Neuer_Highscore extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				HighscoreEntry e1 = new HighscoreEntry(erreichtePunkte, txtName.getText());
-				HIGH.setNewHighScore(e1);
+				
+				HIGH.setNewHighScore(erreichtePunkte, txtName.getText());
+				
+				
+				
+             	int	i=0;
+				while (i < 10)
+				{
+					Back_value.add(HIGH.Scores.get(i).getPunktzahl()+"    "+HIGH.Scores.get(i).getName());
+					
+					i++;
+				}
+		try {
+			AusgabeClient.Save(Back_value);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+			
 				setVisible(false);
 			}
 		});
@@ -88,4 +111,8 @@ public class Neuer_Highscore extends JFrame {
 		contentPane.add(txtSieHabenX);
 		txtSieHabenX.setColumns(10);
 	}
+	
+
+	
+	
 }
