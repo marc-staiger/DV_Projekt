@@ -1,18 +1,18 @@
 
 public class HighscoreEntry {
-	double Punktzahl;
+	int Punktzahl;
     String Name;
 	
-	public HighscoreEntry (double Punktzahl, String Name)
+	public HighscoreEntry (int Punktzahl, String Name)
 	
 	{
 	this.Punktzahl=Punktzahl;
 	this.Name=Name;
 	}
 	
-	public double getPunktzahl()
+	public int getPunktzahl()
 	{
-	return Punktzahl;	
+	return  Punktzahl;	
 	}
 	public String  getName()
 	{

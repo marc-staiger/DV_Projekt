@@ -74,7 +74,7 @@ public Highscore() throws IOException
     	    }
 	
 	
-	AusgabeClient.ÜbergabeServer();
+	AusgabeClient.Save(Scores);
 	AusgabeClient.ClientStop();
 	
 SortiereHighscore();

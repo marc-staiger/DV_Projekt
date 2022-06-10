@@ -101,57 +101,30 @@ public static  ArrayList<String> ReadHighscore()
 		
 }
 
-public static void ÜbergabeServer() throws IOException
-{		    	
-  		
-//Übergabe an Server		
-//-----------------------------------------------------------------------------------------------------------------------               
-        
-    	ArrayList<String> SortierterHighscore;
-    	SortierterHighscore  = new ArrayList<String>(10);	
-    	
-    	
-    	//System.out.println("Einlesen vom Sortierung"+Sortierung_Test_2.ArrayAusgabe());
-    	SortierterHighscore  = Sortierung_Test.ArrayAusgabe();
 
-    	System.out.println("Sortierung Nr5"+SortierterHighscore.get(5));
-    	System.out.println("Sortierung Nr5"+SortierterHighscore.get(2));	
-    	
-    	
-    	System.out.println("Client 3");
-    	
-    
-  	
-    
-    	int k = 0;
-		while(k <=9)
-		{
-        out.println(SortierterHighscore.get(k));	
-        k++;	
-        out.flush();
-		}
-		
-		System.out.println("Client 4");            
-
-     
-        System.out.println("Client SM fertig");
-       
     	
 		
         
-    	}  	 
-public static void Save(ArrayList<String> SortierterHighscore) throws IOException
+    	
+public static void Save(ArrayList<HighscoreEntry> SortierterHighscore) throws IOException
 {		    	
   		
 //Übergabe an Server		
 //-----------------------------------------------------------------------------------------------------------------------               
         
     	
+	
     	
-    	
-    	
+	ArrayList<String> Back_value;
     	//System.out.println("Einlesen vom Sortierung"+Sortierung_Test_2.ArrayAusgabe());
-    	
+	Back_value = new ArrayList<String>();
+ 	
+    for (int i =0; i< 10;i++) {
+		System.out.println(i);
+		String s =Integer.toString(SortierterHighscore.get(i).getPunktzahl())+SortierterHighscore.get(i).getName();
+		Back_value.add(s);
+	}
+
 
        
   	

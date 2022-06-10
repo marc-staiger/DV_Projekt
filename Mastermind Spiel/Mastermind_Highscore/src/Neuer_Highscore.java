@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class Neuer_Highscore extends JFrame {
     private  static int erreichtePunkte;
-    private ArrayList<String> Back_value;
+    
 	private JPanel contentPane;
 	private JTextField txtNewHighscore;
 	private JTextField txtName;
@@ -77,16 +77,9 @@ public class Neuer_Highscore extends JFrame {
 				
 				System.out.println(HIGH.getHighscore(9).getPunktzahl()+HIGH.getHighscore(9).getName());
 				
-				Back_value = new ArrayList<String>();
-             	
-	              for (int i =0; i< 10;i++) {
-					System.out.println(i);
-					String s =Double.toString(HIGH.Scores.get(i).getPunktzahl())+HIGH.Scores.get(i).getName();
-					Back_value.add(s);
-				}
-		
+				
 		try {
-			AusgabeClient.Save(Back_value);
+			AusgabeClient.Save(HIGH.getHighscoreAll());
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
