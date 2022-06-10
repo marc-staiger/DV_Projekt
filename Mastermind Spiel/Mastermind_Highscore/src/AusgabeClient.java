@@ -11,6 +11,7 @@ public class AusgabeClient {
 	
 public static Scanner in;
 public static PrintWriter out;
+public static  Socket clientSocket;
     
 //-----------------------------------------------------------------------------------------------------------------------    
     
@@ -37,8 +38,9 @@ public static void VerbindeMitServer() throws IOException {
     		
     public void sendMessage() throws IOException {
     		 
-    Socket clientSocket = new Socket("localhost", 6666);
-    	 
+    clientSocket = new Socket("localhost", 6666);
+    
+   	 
     	
     System.out.println("Client 2");
     	  
@@ -51,7 +53,7 @@ public static void VerbindeMitServer() throws IOException {
     	
 //Einlesen vom Server und abspeichern in Array  
 //-----------------------------------------------------------------------------------------------------------------------   
-public static String ArrayzumSortieren()
+public static String ArrayzumSortieren() throws IOException
 {
 	
        String S= in.nextLine();
@@ -60,6 +62,8 @@ public static String ArrayzumSortieren()
 		
 		return S;
 		
+
+        
 }
 
 
@@ -131,9 +135,19 @@ public static void ÜbergabeServer() throws IOException
 
      
         System.out.println("Client SM fertig");
+       
+    	
+		
         
     	}  	 
-        
+
+
+public static void ClientStop() throws IOException
+{
+clientSocket.close();
+
+}
+
 }  
     
      

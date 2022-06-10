@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.io.IOException;
 
 @SuppressWarnings("serial")
 public class Highscore_GUI extends JFrame {
@@ -26,8 +27,9 @@ public class Highscore_GUI extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * @throws IOException 
 	 */
-	public static void Ausführen() {
+	public static void Ausführen()  {
 		
 					Highscore_GUI frame = new Highscore_GUI();
 					frame.setVisible(true);
@@ -36,6 +38,7 @@ public class Highscore_GUI extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws IOException 
 	 */
 	public Highscore_GUI() {
 		Highscore HIGH = new Highscore();

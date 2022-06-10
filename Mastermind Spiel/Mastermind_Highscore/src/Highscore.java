@@ -16,7 +16,7 @@ public class Highscore {
 	// hier rein
 }
 
-public Highscore()
+public Highscore() throws IOException
 
 {
 	
@@ -72,6 +72,11 @@ public Highscore()
     	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name);
     	    Scores.add(Neu);
     	    }
+	
+	
+
+	AusgabeClient.ClientStop();
+	
 SortiereHighscore();
 }
 		

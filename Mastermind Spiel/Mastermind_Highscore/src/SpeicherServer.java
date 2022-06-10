@@ -31,9 +31,10 @@ public class SpeicherServer
     
     System.out.println("Server START");
     
-    server.VerbindeMitClient(6666);
+    for(;;) 
+    {server.VerbindeMitClient(6666);}
         
-    System.out.println("Server FERTIG");
+  
     
     }
 
@@ -41,6 +42,9 @@ public class SpeicherServer
  //-----------------------------------------------------------------------------------------------------------------------   
   
     public void VerbindeMitClient(int port) throws IOException {
+    	
+    	
+    	
     	
     	System.out.println("Server 2");
     	
@@ -198,10 +202,12 @@ public class SpeicherServer
 		
 		System.out.println("Server 10");
 			
+		clientSocket.close();
+	    serverSocket.close();
+				
 		
-		}		
-		
-	    
+    	
+    }
 		public  void stop() throws IOException {
 		        in.close();
 		        out.close();
