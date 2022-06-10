@@ -116,14 +116,56 @@ public static void Save(ArrayList<HighscoreEntry> SortierterHighscore) throws IO
 	
     	
 	ArrayList<String> Back_value;
-    	//System.out.println("Einlesen vom Sortierung"+Sortierung_Test_2.ArrayAusgabe());
-	Back_value = new ArrayList<String>();
+	Back_value = new ArrayList<String>(10);
  	
     for (int i =0; i< 10;i++) {
-		System.out.println(i);
+		
 		String s =Integer.toString(SortierterHighscore.get(i).getPunktzahl())+SortierterHighscore.get(i).getName();
 		Back_value.add(s);
+	
+		
+		
 	}
+
+
+       
+
+    
+    int k = 0;
+	while(k <=9)
+	{
+    out.println(Back_value.get(k));	
+    k++;	
+    out.flush();
+	}
+	
+	
+ 
+    System.out.println("Client SM fertig");
+   
+	
+	
+    
+	}  	 
+   
+		
+        
+    	
+
+
+
+
+
+public static void Save_Standart(ArrayList<String> SortierterHighscore) throws IOException
+{		    	
+  		
+//Übergabe an Server		
+//-----------------------------------------------------------------------------------------------------------------------               
+        
+    	
+	
+    	
+	
 
 
        

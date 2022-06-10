@@ -65,19 +65,29 @@ public Highscore() throws IOException
 	   	}    	
 	
 	    String firstname1 = s1;
-        firstname1 = firstname1.replaceAll("[0-9]","");
+        firstname1 = firstname1.replaceAll("[0-9]","").replaceAll("[.]","");
        
           String Name=firstname1;
     	    
     	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name);
     	    Scores.add(Neu);
+    	    System.out.println(PKTE+Name+"ajjfdhvfvssjvjsvlköjvsalöaakjjv");
     	    }
-	
-	
-	AusgabeClient.Save(Scores);
+	SortiereHighscore();
+	ArrayList<String> Back_value;
+	Back_value = new ArrayList<String>();
+ 	
+    for (int i =0; i< 10;i++) {
+		System.out.println(i+"......HUHUöalsdhhfaskdkjfawlkjjf");
+		String s =Scores.get(i).getName()+Integer.toString(Scores.get(i).getPunktzahl());
+		Back_value.add(s);
+		;
+	}
+    SortiereHighscore();
+	AusgabeClient.Save_Standart(Back_value);
 	AusgabeClient.ClientStop();
 	
-SortiereHighscore();
+
 }
 		
 		

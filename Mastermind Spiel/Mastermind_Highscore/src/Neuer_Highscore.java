@@ -72,19 +72,12 @@ public class Neuer_Highscore extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				HIGH.setNewHighScore(erreichtePunkte, txtName.getText());
-				
-				System.out.println(HIGH.getHighscore(9).getPunktzahl()+HIGH.getHighscore(9).getName());
-				
-				
-		try {
-			AusgabeClient.Save(HIGH.getHighscoreAll());
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	
+				try {
+					Speichern(txtName.getText(), erreichtePunkte);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				setVisible(false);
 			}
 		});
@@ -107,6 +100,24 @@ public class Neuer_Highscore extends JFrame {
 	}
 	
 
+	public void Speichern(String Name,int PKTE) throws IOException {
+		Highscore HIGH = new Highscore();
+		HIGH.setNewHighScore(PKTE,Name);
+		HIGH.SortiereHighscore();
+		
+	     AusgabeClient.VerbindeMitServer();
+		
+		
+		
+		System.out.println(erreichtePunkte+txtName.getText()+"peroojrjglöergerölg");
+		
+		
+
+	AusgabeClient.Save(HIGH.getHighscoreAll());
+
+
+	AusgabeClient.ClientStop();}}
+
 	
 	
-}
+
