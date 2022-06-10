@@ -147,7 +147,7 @@ public static void Save(ArrayList<String> SortierterHighscore) throws IOExceptio
 //-----------------------------------------------------------------------------------------------------------------------               
         
     	
-    	SortierterHighscore  = new ArrayList<String>(10);	
+    	
     	
     	
     	//System.out.println("Einlesen vom Sortierung"+Sortierung_Test_2.ArrayAusgabe());

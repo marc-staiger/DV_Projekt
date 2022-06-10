@@ -27,7 +27,7 @@ public class Neuer_Highscore extends JFrame {
 	 * @throws IOException 
 	 */
 	public void Ausführen(int PKT ) throws IOException{
-		Back_value = new ArrayList<String>();
+		
 		  erreichtePunkte=PKT;
 		Highscore HIGH = new Highscore();
 		  if(HIGH.Scores.get(9).getPunktzahl()<PKT) {
@@ -75,22 +75,23 @@ public class Neuer_Highscore extends JFrame {
 				
 				HIGH.setNewHighScore(erreichtePunkte, txtName.getText());
 				
+				System.out.println(HIGH.getHighscore(9).getPunktzahl()+HIGH.getHighscore(9).getName());
 				
-				
-             	int	i=0;
-				while (i < 10)
-				{
-					Back_value.add(HIGH.Scores.get(i).getPunktzahl()+"    "+HIGH.Scores.get(i).getName());
-					
-					i++;
+				Back_value = new ArrayList<String>();
+             	
+	              for (int i =0; i< 10;i++) {
+					System.out.println(i);
+					String s =Double.toString(HIGH.Scores.get(i).getPunktzahl())+HIGH.Scores.get(i).getName();
+					Back_value.add(s);
 				}
+		
 		try {
 			AusgabeClient.Save(Back_value);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}	
-			
+		}
+	
 				setVisible(false);
 			}
 		});
