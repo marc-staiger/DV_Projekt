@@ -187,10 +187,44 @@ public static void Save_Standart(ArrayList<String> SortierterHighscore) throws I
 		
         
     	}  	 
+public static void Save_Standart1(ArrayList<String> SortierterHighscore) throws IOException
+{		    	
+  		
+//Übergabe an Server		
+//-----------------------------------------------------------------------------------------------------------------------               
+        
+    	
+	
+    	
+	
+
+
+       
+  	
+    
+    	int k = 0;
+		while(k <=9)
+		{
+			
+        out.println(SortierterHighscore.get(k));	
+        k++;	
+        out.flush();
+		}
+		
+		
+     
+        System.out.println("Client SM fertig");
+       
+    	
+		
+        
+    	}  	 
+
 
 
 public static void ClientStop() throws IOException
 {
+
 clientSocket.close();
 
 }

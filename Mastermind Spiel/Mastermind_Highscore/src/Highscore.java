@@ -91,12 +91,76 @@ public Highscore() throws IOException
 }
 		
 		
-  public void setNewHighScore(int erreichtePunkte,String Name) {
-	  
-	  HighscoreEntry e1 = new HighscoreEntry(erreichtePunkte, Name);
-	  Scores.add(e1);
-	  SortiereHighscore();
-	  
+  public void setNewHighScore(int erreichtePunkte,String Name) throws IOException {
+	  AusgabeClient.VerbindeMitServer();
+		
+		 System.out.println("Client Einslesen");
+	     
+	 	
+			ArrayList<String> HighscoreUnsortiert;
+			HighscoreUnsortiert = new ArrayList<String>(10);
+					
+			
+			
+			System.out.println("Client Einslesen 2");
+			
+			int k=0;
+			
+			while(k <=9)
+			{
+			
+			HighscoreUnsortiert.add(AusgabeClient.ArrayzumSortieren());
+			
+			k++;		
+			
+			}
+				
+			System.out.println("Einlesen vom Server/Senden an Sortierung "+HighscoreUnsortiert);
+			System.out.println("Einlesen beendet");
+			//---------------------------------------------------------------------------------
+		
+		
+			System.out.println("Einlesen vom Server/Senden an Sortierung "+HighscoreUnsortiert);
+		
+		
+
+		
+		int PKTE = 0 ;
+		
+		for (int i = 0; i <=9; i++) {
+			
+			String s =  HighscoreUnsortiert.get(i);
+			String s1= s;
+		   	Pattern p = Pattern.compile("[+-]?[0-9]+");
+		   	Matcher m = p.matcher(s);
+		   	while ( m.find() ) {
+		    	     PKTE=Integer.parseInt(s.substring(m.start(), m.end()));
+		   	}    	
+		
+		    String firstname1 = s1;
+	        firstname1 = firstname1.replaceAll("[0-9]","").replaceAll("[.]","");
+	       
+	          String Name1=firstname1;
+	    	    
+	    	    HighscoreEntry Neu = new HighscoreEntry(PKTE,Name1);
+	    	    Scores.add(Neu);
+	    	    System.out.println(PKTE+Name1+"ajjfdhvfvssjvjsvlköjvsalöaakjjv");
+	    	    }
+		HighscoreEntry Neu = new HighscoreEntry(erreichtePunkte, Name);
+		Scores.add(Neu);
+		SortiereHighscore();
+		ArrayList<String> Back_value;
+		Back_value = new ArrayList<String>();
+	 	
+	    for (int i =0; i< 10;i++) {
+			System.out.println(i+"......HUHUöalsdhhfaskdkjfawlkjjf");
+			String s =Scores.get(i).getName()+Integer.toString(Scores.get(i).getPunktzahl());
+			Back_value.add(s);
+			;
+		}
+	    SortiereHighscore();
+		AusgabeClient.Save_Standart(Back_value);
+		AusgabeClient.ClientStop();
   }
 
 public HighscoreEntry getHighscore(int i)

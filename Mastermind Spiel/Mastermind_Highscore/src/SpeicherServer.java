@@ -46,7 +46,7 @@ public class SpeicherServer
     	
     	
     	
-    	System.out.println("Server 2");
+    	System.out.println("VerbindeMitClient");
     	
     	
     	
@@ -137,7 +137,7 @@ public class SpeicherServer
 
 //Einlesen vom Client       
 //-----------------------------------------------------------------------------------------------------------------------   			
-    	System.out.println("Server 6");
+    	System.out.println("Einlesen vom Client  ");
     
 	
 		ArrayList<String> Highscore;
@@ -170,7 +170,7 @@ public class SpeicherServer
 		{
 		
 			
-		System.out.println("Server 8");	
+		System.out.println("Datei Schreiben in TXT Datei");	
 		File Datei2 = new File (System.getProperty("java.io.tmpdir")+"//Highscore_Speicher.txt");
 		PrintWriter eins = new PrintWriter(new FileWriter(Datei2));
 			
