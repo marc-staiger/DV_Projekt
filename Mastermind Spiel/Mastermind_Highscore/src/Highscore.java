@@ -146,7 +146,7 @@ public Highscore(int erreichtePunkte,String Name) throws IOException {
 	    	    Scores.add(Neu);
 	    	    System.out.println(PKTE+Name1+"ajjfdhvfvssjvjsvlköjvsalöaakjjv");
 	    	    }
-		HighscoreEntry Neu = new HighscoreEntry(erreichtePunkte, Name);
+		HighscoreEntry Neu = new HighscoreEntry(erreichtePunkte, Name.replaceAll("[0-9]","").replaceAll("[.]",""));
 		Scores.add(Neu);
 		SortiereHighscore();
 		ArrayList<String> Back_value;
