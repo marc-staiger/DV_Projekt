@@ -74,7 +74,7 @@ public class Neuer_Highscore extends JFrame {
 			public void mouseClicked(MouseEvent e) {
                 
 				try {
-					HIGH.setNewHighScore(erreichtePunkte, txtName.getText());
+				Highscore	HIGH1 = new Highscore(erreichtePunkte, txtName.getText());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

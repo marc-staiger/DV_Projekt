@@ -91,7 +91,7 @@ public Highscore() throws IOException
 }
 		
 		
-  public void setNewHighScore(int erreichtePunkte,String Name) throws IOException {
+public Highscore(int erreichtePunkte,String Name) throws IOException {
 	  AusgabeClient.VerbindeMitServer();
 		
 		 System.out.println("Client Einslesen");
