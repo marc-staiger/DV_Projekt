@@ -198,7 +198,7 @@ public class Frame_2 extends JFrame {
 			contentPane.add(b1);
 		//	b1.setBorderPainted(false);
 		//	b1.setOpaque(true);
-			b1.setBackground(Color.green);
+		//	b1.setBackground(Color.green);
 			buttons1[i2][i1] = b1;
 			
 			switch(Buttons1)
@@ -241,6 +241,7 @@ public class Frame_2 extends JFrame {
 		{
 		buttons1[0][w1].setBorderPainted(false);
 		buttons1[0][w1].setOpaque(true);
+		buttons1[0][w1].setBackground(Color.green);
 		
 		}
 		
