@@ -5,15 +5,15 @@ import java.util.regex.Pattern;
 public class Ausführen {
 	public static void main(String[] args) throws IOException {
 		 
-       
-		 Neuer_Highscore hu = new Neuer_Highscore();
-	      hu.Ausführen(200);
+//       
+//		 Neuer_Highscore hu = new Neuer_Highscore();
+//	      hu.Ausführen(200);
     
-      Spielbrett HUHU4 = new Spielbrett();
+      Spielbrett StartUP = new Spielbrett();
 
-      HUHU4.Ausführen();
+      StartUP.Ausführen();
   
-//  
+
 
 		
 		

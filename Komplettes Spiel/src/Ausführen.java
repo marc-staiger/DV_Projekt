@@ -6,14 +6,13 @@ public class Ausführen {
 	public static void main(String[] args) throws IOException {
 		 
        
-		 //Neuer_Highscore hu = new Neuer_Highscore();
-	     // hu.Ausführen(200);
+		
     
       Spielbrett HUHU4 = new Spielbrett();
 
       HUHU4.Ausführen();
   
-//  
+ 
 
 		
 		

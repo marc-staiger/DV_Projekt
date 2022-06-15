@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.util.Random;
@@ -506,6 +508,20 @@ public class Frame_2 extends JFrame {
 							for(int i=0; i<anzahlSpalten; ++i) {	
 								zielButtons[i].setVisible(true);
 							}
+								 Neuer_Highscore NEW = null;
+								try {
+									NEW = new Neuer_Highscore();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+							     try {
+									NEW.Ausführen(punkte.wertung(anzahlZeilen-aktiveReihe));
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							
 						}
 					}//ende if
 			}
