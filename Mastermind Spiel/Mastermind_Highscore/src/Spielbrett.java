@@ -70,8 +70,8 @@ public class Spielbrett extends JFrame {
 		btnNewButton.setFont(new Font("MV Boli", Font.PLAIN, 40));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Games HUHU2 = new Games();
-		    	HUHU2.Ausführen();
+				
+		GUI_Levelauswahl.Ausführen();
 			}
 		});
 		btnNewButton.setBounds(345, 174, 353, 89);

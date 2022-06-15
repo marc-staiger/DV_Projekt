@@ -7,7 +7,7 @@ public class Ausführen {
 		 
        
 		 Neuer_Highscore hu = new Neuer_Highscore();
-	      hu.Ausführen(50);
+	      hu.Ausführen(200);
     
       Spielbrett HUHU4 = new Spielbrett();
 
