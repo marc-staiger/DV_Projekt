@@ -19,8 +19,11 @@ public class Help extends JFrame {
 	private JTextField txtHelp;
 
 	/**
-	 * Launch the application.
-	 */
+	 * launch the window Highscore 
+	 * @param   -
+	 * @return    
+	 * @see  window    
+	 * 	 */
 	public void Ausführen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,7 +38,11 @@ public class Help extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * contains the information for help
+	 * 
+	 * @param   -
+	 * @return  -  
+	 * @see       -
 	 */
 	public Help() {
 		setResizable(false);

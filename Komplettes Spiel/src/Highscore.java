@@ -15,7 +15,14 @@ public class Highscore {
 	String_Scores= new ArrayList<String>();
 	// hier rein
 }
-
+/**
+	 * creates a new object of Highscore
+	 * gets the list from the Server
+	 * 
+	 * @param  -
+	 * @return   -   
+	 * @see       -
+	 */
 public Highscore() throws IOException
 
 {
@@ -89,7 +96,14 @@ public Highscore() throws IOException
 	
 
 }
-		
+/**
+ * creates a new object of highscore
+ * gets the list from the Server
+ * sets a new highsccore
+ * @param  erreichtePunkte, Name
+ * @return   -   
+ * @see       -
+ */
 		
 public Highscore(int erreichtePunkte,String Name) throws IOException {
 	  AusgabeClient.VerbindeMitServer();
@@ -162,18 +176,37 @@ public Highscore(int erreichtePunkte,String Name) throws IOException {
 		AusgabeClient.Save_Standart(Back_value);
 		AusgabeClient.ClientStop();
   }
-
+/**
+	 * get method highscore
+	 * 
+	 * @param   number of the score
+	 * @return  object of name and score  
+	 * @see       -
+	 */
 public HighscoreEntry getHighscore(int i)
 
 {
   return Scores.get(i);
 }
-
+/**
+ * get method highscore
+ * 
+ * @param   -
+ * @return  all objects of names and scores 
+ * @see       -
+ */
 public ArrayList<HighscoreEntry> getHighscoreAll()
 
 {
   return Scores; 
 }
+/**
+ * sorts the highscore
+ * 
+ * @param   -
+ * @return  - 
+ * @see       -
+ */
 public void SortiereHighscore()
 {
 	

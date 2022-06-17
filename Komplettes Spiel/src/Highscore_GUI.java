@@ -26,8 +26,11 @@ public class Highscore_GUI extends JFrame {
 	private JTextField textField_8;
 
 	/**
-	 * Launch the application.
-	 * @throws IOException 
+	 *launch the highscore window
+	 * 
+	 * @param  -
+	 * @return  -
+	 * @see       highscore window
 	 */
 	public static void Ausführen() throws IOException  {
 		
@@ -37,8 +40,11 @@ public class Highscore_GUI extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
-	 * @throws IOException 
+	 * contains the informations for the highscore window
+	 * 
+	 * @param   -
+	 * @return  -  
+	 * @see       -
 	 */
 	public Highscore_GUI() throws IOException {
 		Highscore HIGH = new Highscore();

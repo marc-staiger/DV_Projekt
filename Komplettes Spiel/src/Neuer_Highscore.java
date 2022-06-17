@@ -23,8 +23,13 @@ public class Neuer_Highscore extends JFrame {
 	private JTextField txtSieHabenX;
 
 	/**
-	 * Launch the application.
-	 * @throws IOException 
+	 * Launch the new Highscore function
+	 *the function checks the old last score, if the player is better the window is launched
+	 * 
+	 * @param  the new score
+	 * 
+	 * @return   -   
+	 * @see         window
 	 */
 	public void Ausführen(int PKT ) throws IOException{
 		
@@ -46,13 +51,16 @@ public class Neuer_Highscore extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
-	 * @throws IOException 
+	 *  contains the informations for the new highscore window, saves the new score
+	 *  
+	 * @param  -
+	 * @return   -   
+	 * @see        -
 	 */
 	public Neuer_Highscore() throws IOException {
         setResizable(false);
 		Highscore HIGH = new Highscore();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

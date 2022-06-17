@@ -30,8 +30,12 @@ public class Spielbrett extends JFrame {
 	private JTextField txtNewMastermifnd;
 
 	/**
-	 * Launch the application.
-	 * @param i 
+	 * Launch the startup function
+	 *
+	 * 
+	 * @param  -
+	 * @return   -   
+	 * @see         Start up window
 	 */
 	public  void Ausführen() {
 		EventQueue.invokeLater(new Runnable() {
@@ -47,7 +51,11 @@ public class Spielbrett extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * create the frame, define how buttons act	 *
+	 * 
+	 * @param  -
+	 * @return   -   
+	 * @see       -
 	 */
 	public Spielbrett() {
 		setResizable(false);
