@@ -470,6 +470,7 @@ public class Frame_2 extends JFrame {
 								Punktelabel.setForeground(Color.BLACK);
 								Punktelabel.setFont(new Font("", 60,30));
 								Punktelabel.setVisible(true);
+								Kontrollbutton.setEnabled(false);
 								///////////////////////////////////////////
 							 	for(int i=0; i<anzahlSpalten; ++i) {
 							 		zielButtons[i].setVisible(true);
@@ -504,6 +505,7 @@ public class Frame_2 extends JFrame {
 							Punktelabel.setForeground(Color.BLACK);
 							Punktelabel.setFont(new Font("", 60,30));
 							Punktelabel.setVisible(true);
+							Kontrollbutton.setEnabled(false);
 							///////////////////////////////////////////////
 							for(int i=0; i<anzahlSpalten; ++i) {	
 								zielButtons[i].setVisible(true);
@@ -555,5 +557,35 @@ public class Frame_2 extends JFrame {
 			}	
 		});
 		//Ende ZurÃ¼ckbutton	
+		
+		
+
+		//Anfang Hauptmenübutton
+		
+		JButton Hauptmenubutton = new JButton("Hauptmenü");
+		Hauptmenubutton.setBounds(700, 200, 100, 40);
+		contentPane.add(Hauptmenubutton);
+		Hauptmenubutton.setOpaque(true);
+		Hauptmenubutton.setBorderPainted(true);
+		Hauptmenubutton.setBackground(Color.WHITE);
+		Hauptmenubutton.setForeground(Color.BLACK);
+		
+		Hauptmenubutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e6){
+				
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {
+								Spielbrett frame = new Spielbrett();
+								frame.setVisible(true);
+								dispose();
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+			}	
+		});
+		//Ende Hauptmenübutton	
 	}
 }

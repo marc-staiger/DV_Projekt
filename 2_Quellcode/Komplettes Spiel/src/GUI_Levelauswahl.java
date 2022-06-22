@@ -133,6 +133,38 @@ public class GUI_Levelauswahl extends JFrame
 			}
 		});
 		
+		
+		
+		//Anfang Hauptmenübutton
+		
+				JButton Hauptmenubutton = new JButton("Hauptmenü");
+				Hauptmenubutton.setBounds(1000, 200, 100, 40);
+				contentPane.add(Hauptmenubutton);
+				Hauptmenubutton.setOpaque(true);
+				Hauptmenubutton.setBorderPainted(true);
+				Hauptmenubutton.setBackground(Color.WHITE);
+				Hauptmenubutton.setForeground(Color.BLACK);
+				
+				Hauptmenubutton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e6){
+						
+							EventQueue.invokeLater(new Runnable() {
+								public void run() {
+									try {
+										Spielbrett frame = new Spielbrett();
+										frame.setVisible(true);
+										dispose();
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								}
+							});
+					}	
+				});
+				//Ende Hauptmenübutton	
+				
+				
+		
 		/*	
 		Zeitlevel.setOpaque(true);
 		Zeitlevel.setBorderPainted(false);
@@ -147,6 +179,8 @@ public class GUI_Levelauswahl extends JFrame
 			}
 		});
 		*/
+				
+				
 				
 		Level1.setVisible(true);
 		Level2.setVisible(true);
