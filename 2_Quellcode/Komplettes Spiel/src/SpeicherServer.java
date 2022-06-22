@@ -15,15 +15,14 @@ import java.io.FileNotFoundException;
 
 public class SpeicherServer
 {
-    private ServerSocket serverSocket;
-    private Socket clientSocket;
-    private PrintWriter out;
-    private BufferedReader in;
-   
     
     
   //-----------------------------------------------------------------------------------------------------------------------   
- 
+ /**
+  * The main method of the server which controls the methods of the class and uses a loop that server repeat its program.
+  * @param args
+  * @throws IOException
+  */
   public static void main(String[] args) throws IOException
     {
 	
@@ -40,7 +39,11 @@ public class SpeicherServer
 
     
  //-----------------------------------------------------------------------------------------------------------------------   
-  
+  /**
+   * Connects server and client, reads the TXT file, send its data to the client, receive the new data and saves it in the TXT file.
+   * @param port
+   * @throws IOException
+   */
     public void VerbindeMitClient(int port) throws IOException {
     	
     	
@@ -105,28 +108,29 @@ public class SpeicherServer
         
         
         
-        Scanner ScannerNr1 = new Scanner(Datei1);
-        					
-        ArrayList<String> AusgabePunkte;
-        AusgabePunkte = new ArrayList<String>(10);
-        			
-        while (ScannerNr1.hasNextLine()) 
-        { 
-        			
-        AusgabePunkte.add(ScannerNr1.nextLine());
-        			
-        }
-        			
-        System.out.println("Eingelesen Array von Txt "+AusgabePunkte);
-        
-        int k = 0;
-		while(k <=9)
-		{
-        out.println(AusgabePunkte.get(k));
-				
-		k++;	
-		
+        try (Scanner ScannerNr1 = new Scanner(Datei1)) {
+			ArrayList<String> AusgabePunkte;
+			AusgabePunkte = new ArrayList<String>(10);
+						
+			while (ScannerNr1.hasNextLine()) 
+			{ 
+						
+			AusgabePunkte.add(ScannerNr1.nextLine());
+						
+			}
+						
+			System.out.println("Eingelesen Array von Txt "+AusgabePunkte);
+			
+			int k = 0;
+			while(k <=9)
+			{
+			out.println(AusgabePunkte.get(k));
+					
+			k++;	
+			
+			}
 		}
+        					
         out.flush();
         }
         				
@@ -208,10 +212,4 @@ public class SpeicherServer
 		
     	
     }
-		public  void stop() throws IOException {
-		        in.close();
-		        out.close();
-		        clientSocket.close();
-		        serverSocket.close();
-		    }
-		}
+}
