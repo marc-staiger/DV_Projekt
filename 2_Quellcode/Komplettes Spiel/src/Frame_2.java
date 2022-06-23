@@ -6,7 +6,10 @@ import javax.swing.*;
 import javax.swing.border.*;
 import java.util.Random;
 
-
+/**
+ * Klasse enthaellt das komplette Spielfeld, dass der Benutzer nach der Levelauswahl sieht und die Spiellogik
+ *
+ */
 public class Frame_2 extends JFrame {
 
 	private JPanel contentPane;
@@ -55,10 +58,7 @@ public class Frame_2 extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 * @param p2 
-	 */
+
 	public Frame_2(int Spalten, int Zeilen) 
 	{
 		//Setzen der Zeilen und Spalten
@@ -96,7 +96,12 @@ public class Frame_2 extends JFrame {
 	}
 	
 		
-	
+	/**
+	 * Setzt alle Parameter fuer das Fenster, in dem das Spielfeld angezeigt wird
+	 *
+	 * @param  -
+	 * @return   -
+	 */
 		private void setFrame(){
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(400, 400, 1800, 1200);
@@ -112,7 +117,12 @@ public class Frame_2 extends JFrame {
 			contentPane.add(lblNewLabel, BorderLayout.NORTH);
 		}
 	
-	
+		/**
+		 * Setzt alle Parameter fuer das Gewinn- und Verlierenlabel, die spaeter angezeigt werden, wenn das Spiel beendet ist
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setLabel() {
 			//Anfang GewinnLabel	
 			Gewinnlabel = new JLabel ("Sie haben Gewonnen!");
@@ -141,8 +151,13 @@ public class Frame_2 extends JFrame {
 			//Ende Verlorenlabel
 		}
 		
+		/**
+		 * Setzt alle Kontrollkaestchen, in denen spaeter die schwarzen und weissen Pinns gesetzt werden
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setControlButton(){
-
 			Controlbutton1= new JButton[anzahlZeilen]; 
 			Controlbutton2= new JButton[anzahlZeilen]; 
 			Controlbutton3= new JButton[anzahlZeilen]; 
@@ -215,6 +230,12 @@ public class Frame_2 extends JFrame {
 			}
 		}
 		
+		/**
+		 * Legt ueber einen Zufallsgenerator den Zielcode fest, der erraten werden soll
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setZiel() {
 		
 			zielButtons = new JButton[anzahlSpalten];
@@ -232,6 +253,13 @@ public class Frame_2 extends JFrame {
 			}
 		}
 
+		
+		/**
+		 * Setzt alle Parameter fuer den Butten, der zurueck zum Hauptmenue fuehrt
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setHauptmenubutton() {
 			JButton Hauptmenubutton = new JButton("Hauptmenü");
 			Hauptmenubutton.setBounds(700, 200, 100, 40);
@@ -259,6 +287,12 @@ public class Frame_2 extends JFrame {
 			});
 		}
 		
+		/**
+		 * Setzt alle Parameter fuer den Button, der zurueck zur Levelauswahl fuehrt
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setZurueckbutton(){
 			JButton Zurueckbutton = new JButton("Zurück");
 			Zurueckbutton.setBounds(700, 100, 100, 40);
@@ -286,6 +320,12 @@ public class Frame_2 extends JFrame {
 			});
 		}
 		
+		/**
+		 * Erzeugt eine Schaltflaeche, auf der die Farbreihenfolge beim durchklicken der Pinns als Spielhilfe angezeigt wird
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setFarbhilfe(){
 			// Anzeige der FarbmÃ¶glichkeiten unten
 			farbenButtons = new JButton[anzahlFarben];
@@ -310,6 +350,12 @@ public class Frame_2 extends JFrame {
 			// Ende der Anzeige der FabmÃ¶glichkeiten unten
 		}
 		
+		/**
+		 * Setzt alle Parameter fuer das Haupspielfeld, bestehend aus den Reihen der Pinns
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setPinnButtons(){
 			///Direkte Spieleingabe
 			pinnButtons= new JButton[anzahlZeilen] [anzahlSpalten];
@@ -382,6 +428,12 @@ public class Frame_2 extends JFrame {
 			// Ende direkte Spieleingabe
 		}
 		
+		/**
+		 * Setzt den Button, der zur Kontrolle einer Farbkombination gedrueckt wird, fuehrt die Kontrolle durch und gibt die Rueckmeldung durch setzen der Kontrollpinns
+		 *
+		 * @param  -
+		 * @return   -
+		 */
 		private void setKontrollbutton(){
 			// Anfang Kontrollbutton 
 			JButton Kontrollbutton = new JButton("Check");
