@@ -49,7 +49,7 @@ public class Punkte {
 	}
 	
 	/**
-		 * Berechnet die Punktzahl anhand des Levels und der nach dem Spiel übrigen Reihen
+		 * Berechnet die Punktzahl anhand des Levels und der nach dem Spiel uebrigen Reihen
 		 *
 		 * @param  Anzahl der Reihen (als Ganzzahl), die nach dem Ende des Spiels noch frei ist
 		 * @return   Erreichte Punktzahl (als Ganzzahl)
