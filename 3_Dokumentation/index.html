@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projektskizze</title>
+</head>
+<body>
+	<header>
+		<img src="images/HFU-Logo.png">
+		<h1>Projekt: Mastermind</h1>
+		<h2>Semester: WS/SS 2022</h2>
+		<b>Teammitglieder:</b>
+		<ul>
+			<li>Marc Staiger    (marc.staiger@hs-furtwangen.de)</li>
+			<li>Ramona Müller   (ramona.mueller@hs-furtwangen.de)</li>
+			<li>Jannik Eiberle   (jannik.maximilian.eiberle@hs-furtwangen.de)</li>
+		    <li>Enda Karahan    (enda.guel.karahan@hs-furtwangen.de)</li>
+			<li>Timo Kromer     (timo.kromer@hs-furtwangen.de)</li>
+			<li>Johannes Ritter (johannes.ritter@hs-furtwangen.de)</li>
+
+		</ul>
+	</header>
+	<main>
+		<h2>1. Projekt-Beschreibung</h2>
+		<p>Programmieren eines Mastermind Spiels: Mastermind ist ein Logikspiel bei dem eine 4-stellige Farbkombination (Farbe und Reihenfolge) mit 8 Versuchen erraten werden muss. Dabei stehen 6 verschiedene Farben zur Verfügung. Nach jedem Versuch wird durch schwarze oder weiße Pinns angezeigt, wie nah der Versuch an der Lösung ist.Schwarze Pinns stehen für eine richtig erratene Farbe am richtigen Platz, weiße für eine vorhandene Farbe, die aber nicht an diesem Platz ist.
+		</p>
+
+
+
+
+
+
+		<h2>2. Features und Anforderungen</h2>
+		<p>Funktionalen Anforderungen:</p>
+		<ul>
+			<li>Das Regelwerk sollte einsehbar sein</li>
+			<li>Das Programm muss in der Lage sein, eine Zufallskombination zu erstellen, welche dann erraten werden kann</li>
+			<li>Der Spieler muss in der Lage sein eine Farbkombination festzulegen</li>
+			<li>Das Programm muss in der Lage sein, eine vom Spieler vorgegebene Kombination auszuwerten und zu sagen, ob sich eine Farbe an er richtigen Position befindet oder ob die Farbe dabei ist, jedoch nicht an der richtigen Position</li>
+			<li>Das Programm muss in der Lage sein, vorherige Farbkombinationen anzuzeigen, sodass der Spieler in der Lage ist seine vorherigen Versuche zu sehen</li>
+			<li>Wenn man die vorgegebene Farbkombination errät, muss das Spiel zu Ende sein</li>
+			<li>Wenn man nach Anzahl aller versuchen nicht die vorgegeben Farbkombination errät, muss das Spiel zu Ende sein -> Game Over</li>
+			<li>Am Ende des Spiel, egal ob gewonnen oder verloren wird die vorgegeben Farbkombination vom PC enthüllt</li>
+			<li>Am Ende einer Runde, muss das Spiel neu gestartet werden können</li>
+			<li>Es werden Punkte für das Spiel vergeben, die man am Ende auf einer Rangliste einsehen kann. Dabei gibt es mehr Punkte je weniger Züge benötigt wurden</li>
+		</ul>
+		<p>Nicht-funktionale Anforderungen :</p>
+		<ul>
+			<li>Das gesamte Spielbrett ist in einem Fenster sichtbar und orientiert sich am original Mastermind Spiel</li>
+			<img src="https://i.pinimg.com/originals/d0/07/55/d0075542975c8ca9aaae9f7ff9b349da.jpg"width="300"height="250">
+			<li>Dabei blickt man von oben auf das Spielfeld und die Pinns werden durch Kreise in der entsprechenden Farbe repräsentiert</li>
+		<h2>3. Architektur</h2>
+		<p>Vorläufiger Entwurf des Klassendiagramms:</p>
+
+		<div class="diagram">
+			classDiagram
+			class Pinnfeld {
+				
+			}
+			class Kreis {
+				
+			}
+			class Zufallsspinnfeld {
+				
+			}
+			class Kontrollpinnfeld {
+				
+			}
+
+			class Spielpinnfeld{
+
+			}
+			class Spielfeld {
+
+			}
+
+			class Fenster {
+
+			}
+
+			class Regeln {
+
+			}
+			
+			Pinnfeld <|-- Spielpinnfeld
+			Pinnfeld <|-- Kontrollpinnfeld
+			Pinnfeld <|-- Zufallsspinnfeld
+			Pinnfeld -- Kreis
+			Spielfeld -- Spielpinnfeld
+			Spielfeld -- Kontrollpinnfeld
+			Spielfeld -- Zufallsspinnfeld
+			Fenster -- Spielfeld
+			Fenster -- Regeln
+		</div>
+		<h2>4. Aufteilung</h2>
+		<p>Spiellogik:</p>
+		<ul>
+			<li>Enda Karahan</li> 55 Stunden
+			<li>Ramona Müller</li> 60 Stunden
+		</ul>
+		<p>GUI:</p>
+		<ul>
+			<li>Johannes Ritter</li> 60 Stunden
+			<li>Jannik Eiberle</li>  50 Stunden
+		</ul>
+		<p>Rangliste:</p>
+		<ul>
+			<li>Timo Kromer</li>  60 Stunden
+			<li>Marc Staiger</li> 70 Stunden
+		</ul>
+	</main>
+	<footer></footer>
+</body>
+</html>
+
+<!-- scripts to render diagrams (do not touch!) -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+	mermaid.initialize({startOnLoad:true});
+	let diagrams = document.querySelectorAll(".diagram")
+	mermaid.init({}, diagrams);
+</script>

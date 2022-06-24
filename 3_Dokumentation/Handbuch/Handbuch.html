@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projektskizze</title>
+</head>
+<body>
+	<header>
+		<img src="images/HFU-Logo.png">
+		<h1>Handbuch</h1>
+		
+		<h2>Projekt:Mastermind
+		<b>Spielerklärung:</b>
+		
+		Mastermind ist ein Spiel, in welchem ein zufallsgenerierter Code erraten werden muss. Diese Code ist eine Reihenfolge von verschiedenen Farben. Wenn man die richtige Farbe an der richtigen Position hat gibt das Spiel in dem Kontrollfeld die Farbe schwarz. 
+Achtung! Nur weil das Kontrollfeld an der ersten Stelle schwarz ist, heißt es nicht, dass auch die erste Position mit der Farbe stimmt. Es heißt lediglich, dass eine Farbe an der richtigen Position ist.
+Hat man die richtige Farbe, jedoch nicht die Richtige Position, so gibt das Kontrollfeld die Farbe Weiß. Hierdurch weiß man, dass die Farbe in dem von dem Computer generierten Muster vorkommt, jedoch die Position nicht stimmt. Sollte weder die Farbe schwarz, noch weiß auftauchen muss man sich einen neuen Code von Farben überlegen. 
+
+
+		
+	</header>
+	<main>
+		<h2>1.Spielanleitung</h2>
+		<p>Der Computer gibt ein Zufalls generiertes Muster wieder.
+Sie beginnen damit, in der untersten Zeile, eine zufällige Reihenfolge an Farben festzulegen. 
+Mit dem "Check"-button schauen Sie, ob Sie die richtigen Farben und Position haben oder ob Sie von neuem raten müssen. 
+Ihr eingegebene Reihenfolge wird in die nächst obere Zeile kopiert, sodass Sie leichter danach die Farben ändern können.
+
+		</p>
+
+
+
+
+
+
+		<h2>2.Levelbeschreibung</h2>
+		
+		<li>Bei Level 1 haben Sie 4 Positionen von Farben und 8 Versuche, die gewünschte Reihenfolge von Farben zu erraten. </li>
+		<li>Bei Level 2 haben Sie 5 Positionen von Farben und 9 Versuche, die gewünschte Reihenfolge von Farben zu erraten.</li>
+		<li>Bei Level 3 haben Sie 6 Positionen von Farben und 10 Versuche, die gewünschte Reihenfolge von Farben zu erraten.</li>
+			
+		
+		
+		<h2>3.Buttonerklärung</h2>
+		<li>Die Taste: "Help" erklärt noch einmal das Spiel in Kurzfassung.</li>
+		<li>Die Taste: "Highscore" gibt den Highscore wieder. Hierfür muss man aber erst in Java das Programm Server ausführen.</li>
+		<li>Die Taste: "Check" sorgt dafür, dass das Programm den von Ihnen eingegeben Code überprüft und das Kontrollfeld wird ausgefüllt.</li>
+		<li>Die Taste: "Zurück" sorgt dafür, dass man wieder zur Levelauswahl kommt.</li>
+
+
+
+
+		
+
+		<h2>4.Installation</h2>
+		
+		Um das Spiel spielen zu können brauchen Sie ein "Java runtime environment". 
+		Anschließend müssen Sie die 2 Programme: "Ausführen", "Server" in Java öffnen und dann zuerst das Programm "Server" ausführen und 
+		dann anschließend das Programm "Ausführen" ausführen.
+
+	</main>
+	<footer></footer>
+</body>
+</html>
+
+<!-- scripts to render diagrams (do not touch!) -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+	mermaid.initialize({startOnLoad:true});
+	let diagrams = document.querySelectorAll(".diagram")
+	mermaid.init({}, diagrams);
+</script>
