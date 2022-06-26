@@ -3,7 +3,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-
+/**
+ * Klasse enthaellt die Levelauswahl, die der Benutzer nach dem starten sieht
+ *
+ */
 public class GUI_Levelauswahl extends JFrame
 {
 	private JPanel contentPane;

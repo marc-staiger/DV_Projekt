@@ -16,7 +16,10 @@ public static  Socket clientSocket;
 //-----------------------------------------------------------------------------------------------------------------------    
     
 
-    
+/**
+ * Central method which controls the Client. 
+ * @throws IOException
+ */
 public static void VerbindeMitServer() throws IOException {
 	
 	System.out.println("Client main start");
@@ -25,18 +28,20 @@ public static void VerbindeMitServer() throws IOException {
 	
 	System.out.println("Client 1");
 	
-   	client.sendMessage();
+   	client.ConnectSocket();
    	
-   	//ArrayzumSortieren();	
-	 	
-	
    	System.out.println("Client main fertig");
 }
 
        
   //-----------------------------------------------------------------------------------------------------------------------   
-    		
-    public void sendMessage() throws IOException {
+    /**
+     * Uses the IP-address and Port to connect client with the server. 
+     * It also creates the Scanner "in" and the PrintWriter "out" to handle the input and output of the Client to send 
+     * and receive data from the server. 		
+     * @throws IOException
+     */
+    public void ConnectSocket() throws IOException {
     		 
     clientSocket = new Socket("localhost", 6666);
     
@@ -53,7 +58,14 @@ public static void VerbindeMitServer() throws IOException {
     	
 //Einlesen vom Server und abspeichern in Array  
 //-----------------------------------------------------------------------------------------------------------------------   
-public static String ArrayzumSortieren() throws IOException
+
+    /**
+     * This method reads the data which gets send by the server. It is used in the Highscore class with a loop to get all
+     * lines of the txt file.
+     * @return
+     * @throws IOException
+     */
+    public static String ArrayzumSortieren() throws IOException
 {
 	
        String S= in.nextLine();
@@ -65,111 +77,18 @@ public static String ArrayzumSortieren() throws IOException
 
         
 }
-
-
-public static  ArrayList<String> ReadHighscore()
-{
-	
-        
-        System.out.println("Client Einslesen");
-        
-    	
-		ArrayList<String> Highscore;
-		Highscore = new ArrayList<String>(10);
-	
-				
-		int i=0;
-		
-		System.out.println("Client Einslesen 2");
-		
-		
-		
-		while(i <=9)
-		{
-		
-		Highscore.add(in.nextLine());
-		
-		i++;		
-		
-		}
-			
-		System.out.println("Einlesen vom Server/Senden an Sortierung "+Highscore);
-		
-		
-		
-		return Highscore;
-		
-}
-
-
-    	
-		
-        
-    	
-public static void Save(ArrayList<HighscoreEntry> SortierterHighscore) throws IOException
-{		    	
-  		
 //Übergabe an Server		
 //-----------------------------------------------------------------------------------------------------------------------               
-        
-    	
-	
-    	
-	ArrayList<String> Back_value;
-	Back_value = new ArrayList<String>(10);
- 	
-    for (int i =0; i< 10;i++) {
-		
-		String s =Integer.toString(SortierterHighscore.get(i).getPunktzahl())+SortierterHighscore.get(i).getName();
-		Back_value.add(s);
-	
-		
-		
-	}
-
-
-       
-
-    
-    int k = 0;
-	while(k <=9)
-	{
-    out.println(Back_value.get(k));	
-    k++;	
-    out.flush();
-	}
-	
-	
  
-    System.out.println("Client SM fertig");
-   
-	
-	
-    
-	}  	 
-   
-		
-        
-    	
-
-
-
-
-
+/**
+ * Send the sorted Array List in single Strings to the server.
+ * @param SortierterHighscore
+ * @throws IOException
+ */
 public static void Save_Standart(ArrayList<String> SortierterHighscore) throws IOException
 {		    	
   		
-//Übergabe an Server		
-//-----------------------------------------------------------------------------------------------------------------------               
-        
-    	
-	
-    	
-	
-
-
-       
-  	
+ 
     
     	int k = 0;
 		while(k <=9)
@@ -182,46 +101,14 @@ public static void Save_Standart(ArrayList<String> SortierterHighscore) throws I
 		
      
         System.out.println("Client SM fertig");
-       
-    	
-		
-        
-    	}  	 
-public static void Save_Standart1(ArrayList<String> SortierterHighscore) throws IOException
-{		    	
-  		
-//Übergabe an Server		
-//-----------------------------------------------------------------------------------------------------------------------               
-        
-    	
-	
-    	
-	
 
-
-       
-  	
-    
-    	int k = 0;
-		while(k <=9)
-		{
-			
-        out.println(SortierterHighscore.get(k));	
-        k++;	
-        out.flush();
-		}
-		
-		
-     
-        System.out.println("Client SM fertig");
-       
-    	
-		
         
     	}  	 
 
-
-
+/**
+ * Stops the connection by closing the socket.
+ * @throws IOException
+ */
 public static void ClientStop() throws IOException
 {
 

@@ -2,6 +2,9 @@
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ 	* Die Klasse steuert und verwaltet die Punktzahlvergabe des Spiels
+	*/
 public class Punkte {
 	
 	private int Multiplikator;
@@ -45,7 +48,12 @@ public class Punkte {
 		}
 	}
 	
-	
+	/**
+		 * Berechnet die Punktzahl anhand des Levels und der nach dem Spiel uebrigen Reihen
+		 *
+		 * @param  Anzahl der Reihen (als Ganzzahl), die nach dem Ende des Spiels noch frei ist
+		 * @return   Erreichte Punktzahl (als Ganzzahl)
+		 */
 	public int wertung(int Reihe)
 	{
 		int Punkte;
